@@ -10,7 +10,7 @@
     <Grid>
         <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Click="btnLogin_Click"/>
         <Button x:Name="btnQuit" Content="Exit" HorizontalAlignment="Left" Margin="48,172,0,0" VerticalAlignment="Top" Click="btnQuit_Click"/>
-        <Button x:Name="btnCreateAcc" Content="Create Account" HorizontalAlignment="Left" Margin="76,172,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCreateAccL" Content="Create Account" HorizontalAlignment="Left" Margin="76,172,0,0" VerticalAlignment="Top" Click="btnCreateAccL_Click"/>
         <Label x:Name="lblUname" Content="Username:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="151" Foreground="#fff"/>
         <TextBox x:Name="txtBoxUName" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
         <Label x:Name="lblMail" Content="E-Mail:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="151" Foreground="#fff"/>

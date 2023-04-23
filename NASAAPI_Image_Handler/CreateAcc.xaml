@@ -7,7 +7,16 @@
         mc:Ignorable="d"
         Title="CreateAcc" Height="450" Width="800"
         Background="#262626">
-    <Grid>
-        
+    <Grid Margin="0,0,633,159">
+        <Label x:Name="lblUNameCreate" Content="Username:" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtUNameCreate" HorizontalAlignment="Left" Margin="10,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="llblUmailCreate" Content="E-Mail:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtUmailCreate" HorizontalAlignment="Left" Margin="10,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblUPWCreate" Content="Password:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtUPWCreate" HorizontalAlignment="Left" Margin="10,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblCreateHeader" Content="Create a new Account" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCreateAcc" Content="Create Account" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Click="btnCreateAcc_Click"/>
+        <Button x:Name="btnCreateQuit" Content="Exit" HorizontalAlignment="Left" Margin="100,201,0,0" VerticalAlignment="Top" Click="btnCreateQuit_Click"/>
+
     </Grid>
 </Window>

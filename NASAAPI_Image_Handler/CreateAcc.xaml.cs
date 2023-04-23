@@ -23,5 +23,15 @@ namespace NASAAPI_Image_Handler
         {
             InitializeComponent();
         }
+
+        private void btnCreateQuit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCreateAcc_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Soon you will be able to create an Account by Clicking this Button!");
+        }
     }
 }

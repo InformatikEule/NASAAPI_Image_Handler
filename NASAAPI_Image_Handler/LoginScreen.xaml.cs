@@ -1,5 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,16 +32,53 @@ namespace NASAAPI_Image_Handler
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBoxUName.Text == uName && txtMail.Text == uMail && txtPW.Text == uPw)
+
+
+
+        SqlConnection conn;
+            try
             {
-                MainWindow wndMain = new MainWindow();
-                wndMain.Show();
-                this.Close();
+                    //            SqlConnection conn = new SqlConnection(
+                    //    "Server=" + host + ";Database=" + db + ";user=" + usr + ";password=" + pw + ";"
+                    //);
+
+                string connString = @"Server=localhost;Database=NasaAPI_Image_Handler;user=;password="; // User ID=Admin; Password=Root
+                conn = new SqlConnection(connString);
+
+                conn.Open();
+
+                string sql = "Select UName, UMail, UPW from Accounts";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string rowResult = string.Format("Username: {0}, User Mail: {1}, User Password: {2}",
+                                    reader.GetValue(0), reader.GetValue(1), reader.GetValue(2));
+
+                    Console.WriteLine(rowResult);
+
+                    conn.Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Wrong Username, Password or E-Mail!");
+                MessageBox.Show("FEHLER HIER: " + ex);
             }
+
+
+
+            //if (txtBoxUName.Text == uName && txtMail.Text == uMail && txtPW.Text == uPw)
+            //{
+            //    MainWindow wndMain = new MainWindow();
+            //    wndMain.Show();
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Wrong Username, Password or E-Mail!");
+            //}
 
         }
 
@@ -47,10 +87,11 @@ namespace NASAAPI_Image_Handler
             this.Close();
         }
 
-        private void btnCreateAcc_Click(object sender, RoutedEventArgs e)
+        private void btnCreateAccL_Click(object sender, RoutedEventArgs e)
         {
             CreateAcc wndCreateAcc = new CreateAcc();
             wndCreateAcc.Show();
+            this.Close();
         }
     }
 }
