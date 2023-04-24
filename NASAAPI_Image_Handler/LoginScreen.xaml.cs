@@ -38,11 +38,7 @@ namespace NASAAPI_Image_Handler
         SqlConnection conn;
             try
             {
-                    //            SqlConnection conn = new SqlConnection(
-                    //    "Server=" + host + ";Database=" + db + ";user=" + usr + ";password=" + pw + ";"
-                    //);
-
-                string connString = @"Server=localhost;Database=NasaAPI_Image_Handler;user=;password="; // User ID=Admin; Password=Root
+                string connString = SecretsCLS.returnSecrets();
                 conn = new SqlConnection(connString);
 
                 conn.Open();
@@ -56,11 +52,10 @@ namespace NASAAPI_Image_Handler
                 {
                     string rowResult = string.Format("Username: {0}, User Mail: {1}, User Password: {2}",
                                     reader.GetValue(0), reader.GetValue(1), reader.GetValue(2));
-
+                    MessageBox.Show(rowResult);
                     Console.WriteLine(rowResult);
-
-                    conn.Close();
                 }
+                conn.Close();
             }
             catch (Exception ex)
             {
