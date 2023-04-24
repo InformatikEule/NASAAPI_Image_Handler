@@ -25,9 +25,19 @@ namespace NASAAPI_Image_Handler
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btnPercy_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Soon! ...tm");
+            MessageBox.Show("You can see all pictures from the Perceverance Mars-Rover here soon!");
+        }
+
+        private void btnCuriosity_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You can see all pictures from the Curiosity Mars-Rover here soon!");
+        }
+
+        private void btnSpirit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You can see all pictures from the Spirit Mars-Rover here soon!");
         }
     }
 }
