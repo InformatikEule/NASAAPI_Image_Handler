@@ -22,9 +22,6 @@ namespace NASAAPI_Image_Handler
     /// </summary>
     public partial class LoginScreen : Window
     {
-        public string uName = "f";
-        public string uMail = "mail@mail.de";
-        public string uPw = "123";
         public LoginScreen()
         {
             InitializeComponent();
@@ -35,10 +32,10 @@ namespace NASAAPI_Image_Handler
 
 
 
-        SqlConnection conn;
+            SqlConnection conn;
             try
             {
-                string connString = SecretsCLS.returnSecrets();
+                string connString = SecretsCLS.returnSecrets(); // remove the part behind the = and fill in your own connection string!
                 conn = new SqlConnection(connString);
 
                 conn.Open();
