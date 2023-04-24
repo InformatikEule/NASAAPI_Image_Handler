@@ -39,5 +39,10 @@ namespace NASAAPI_Image_Handler
         {
             MessageBox.Show("You can see all pictures from the Spirit Mars-Rover here soon!");
         }
+
+        private void btnExoPlanet_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You can see the Images from the NASA-ExoPlanet-API here soon!");
+        }
     }
 }
