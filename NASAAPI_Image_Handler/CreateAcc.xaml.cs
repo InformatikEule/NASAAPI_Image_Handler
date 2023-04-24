@@ -39,15 +39,17 @@ namespace NASAAPI_Image_Handler
                 string connString = SecretsCLS.returnSecrets(); //remove the part behind the = with your own connection string!
                 conn = new SqlConnection(connString);
                 conn.Open();
-
                 SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUNameCreate.Text + "', '" + txtUmailCreate.Text + "', '" + txtUPWCreate.Text + "')", conn);
                 sqlCmd.ExecuteNonQuery();
                 conn.Close();
+                AccCreatedPopup wnd = new AccCreatedPopup();
+                wnd.Show();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            finally { this.Close(); }   
         }
     }
 }
