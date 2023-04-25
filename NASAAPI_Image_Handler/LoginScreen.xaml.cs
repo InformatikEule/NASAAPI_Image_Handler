@@ -72,7 +72,7 @@ namespace NASAAPI_Image_Handler
 
         private void btnCreateAcc_Click(object sender, RoutedEventArgs e)
         {
-            CreateAcc2 wndCreateAcc = new CreateAcc2();
+            CreateAcc wndCreateAcc = new CreateAcc();
             wndCreateAcc.Show();
             this.Close();
         }

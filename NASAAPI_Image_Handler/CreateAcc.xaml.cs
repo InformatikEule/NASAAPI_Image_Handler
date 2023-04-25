@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace NASAAPI_Image_Handler
 {
     /// <summary>
-    /// Interaktionslogik für CreateAcc.xaml
+    /// Interaktionslogik für CreateAcc2.xaml
     /// </summary>
     public partial class CreateAcc : Window
     {
@@ -25,13 +25,17 @@ namespace NASAAPI_Image_Handler
             InitializeComponent();
         }
 
-        private void btnCreateQuit_Click(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
 
-        private void btnCreateAcc_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection conn;
             try
@@ -39,7 +43,7 @@ namespace NASAAPI_Image_Handler
                 string connString = SecretsCLS.returnSecrets(); //remove the part behind the = with your own connection string!
                 conn = new SqlConnection(connString);
                 conn.Open();
-                SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUNameCreate.Text + "', '" + txtUmailCreate.Text + "', '" + txtUPWCreate.Password + "')", conn);
+                SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')", conn);
                 sqlCmd.ExecuteNonQuery();
                 conn.Close();
                 AccCreatedPopup wnd = new AccCreatedPopup();
@@ -49,7 +53,15 @@ namespace NASAAPI_Image_Handler
             {
                 MessageBox.Show(ex.ToString());
             }
-            finally { this.Close(); }   
+            finally { this.Close(); }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }
