@@ -37,7 +37,7 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <StackPanel Width="220"
+            <StackPanel Width="320"
                             Grid.Row="1"
                             Orientation="Vertical"
                             Margin="0,10,0,0">
