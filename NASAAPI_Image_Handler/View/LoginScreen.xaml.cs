@@ -36,11 +36,10 @@ namespace NASAAPI_Image_Handler
                 string connString = SecretsCLS.returnSecrets();
                 conn = new SqlConnection(connString);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UMail=@txtMail AND UPW=@txtPW", conn);
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW", conn);
 
                 cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
-                cmd.Parameters.AddWithValue("@txtMail", txtMail.Text);
-                cmd.Parameters.AddWithValue("@txtPW", txtPW.Text);
+                cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
 
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 if (count >= 1)
@@ -61,16 +60,29 @@ namespace NASAAPI_Image_Handler
             }
         }
 
-        private void btnQuit_Click(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void btnCreateAccL_Click(object sender, RoutedEventArgs e)
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnCreateAcc_Click(object sender, RoutedEventArgs e)
         {
             CreateAcc wndCreateAcc = new CreateAcc();
             wndCreateAcc.Show();
             this.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }
