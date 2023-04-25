@@ -46,7 +46,7 @@ namespace NASAAPI_Image_Handler
                 SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')", conn);
                 sqlCmd.ExecuteNonQuery();
                 conn.Close();
-                AccCreatedPopup wnd = new AccCreatedPopup();
+                Popup wnd = new Popup();
                 wnd.Show();
             }
             catch (Exception ex)
