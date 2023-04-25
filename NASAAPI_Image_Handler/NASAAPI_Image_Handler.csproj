@@ -8,12 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="View\shuttleReflection.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
+    <None Remove="Data\owl_logo.png" />
+    <None Remove="Data\shuttleReflection.jpg" />
+    <None Remove="Data\user-avatar.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="View\shuttleReflection.jpg" />
+    <Resource Include="Data\owl_logo.png" />
+    <Resource Include="Data\shuttleReflection.jpg" />
+    <Resource Include="Data\user-avatar.png" />
   </ItemGroup>
 
 </Project>

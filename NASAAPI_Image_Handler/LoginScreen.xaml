@@ -14,8 +14,8 @@
         MouseDown="Window_MouseDown">
 
         <Border CornerRadius="12">
-            <Border.Background>
-                <ImageBrush ImageSource="/View/shuttleReflection.jpg"
+        <Border.Background>
+            <ImageBrush ImageSource="/Data/shuttleReflection.jpg"
                         Stretch="None"/>
             </Border.Background>
 
@@ -134,8 +134,8 @@
                             Orientation="Vertical"
                             Margin="0,35,0,0">
 
-                        <Image Source="owl_logo.png"
-                           Width="100" Height="100"/>
+                        <Image Source="/Data/owl_logo.png"
+                           Width="100" Height="100" />
 
                         <TextBlock Text="NASA Image Handler"
                                Foreground="White"
@@ -176,7 +176,7 @@
                              Opacity="0.2">
 
                             <!--<TextBox.Background>
-                            <ImageBrush ImageSource="/Data/user-avatar.png"
+                            <ImageBrush ImageSource="\Data\user-avatar.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>-->
@@ -254,44 +254,36 @@
                                FontFamily="Montserrat"
                                Margin="0,5,0,0"/>
 
-                            <Button x:Name="btnCreateAcc"
+                        <Button x:Name="btnCreateAcc"
                                 Foreground="White"
                                 Click="btnCreateAcc_Click"
                                 Cursor="Hand"
                                 Margin="8,0,0,0"
                                 Content="Create one!">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="Background" Value="Transparent"/>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#28AEED"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#28AEED"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
 
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Width="60" Height="20"
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="60" Height="20"
                                         CornerRadius="0"
                                         Background="{TemplateBinding Background}">
-                                            <ContentPresenter VerticalAlignment="Center"
+                                        <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <!--<TextBlock x:Name="txtCreate" Text="Create one!"
-                               Foreground="White"
-                               FontSize="12"
-                               FontWeight="Medium"
-                               FontFamily="Montserrat"
-                               Cursor="Hand"
-                               Margin="8,0,0,0"
-                               />-->
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                        </StackPanel>
+                    </StackPanel>
 
                     </StackPanel>
 
