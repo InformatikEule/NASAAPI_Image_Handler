@@ -23,12 +23,12 @@
         </Border.BorderBrush>
         <Grid>
             <Grid.ColumnDefinitions>
-                <!--Navigation-->
+                <!--Navigation Grid-->
                 <ColumnDefinition Width="250"/>
-                <!--Content-->
+                <!--Content Grid-->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <!--Navigation-->
+            <!--Navigation Styling-->
             <Border CornerRadius="10,0,0,10"
                     Grid.Column="0">
                 <Border.Background>
@@ -37,6 +37,23 @@
                         <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
+                <StackPanel>
+                    <!--Logo-->
+                    <StackPanel Orientation="Horizontal"
+                                Height="35"
+                                Margin="15,25,0,40">
+                        <Image Source="/Data/owl_logo.png" Height="30"/>
+                        <TextBlock Text="NASA Images!"
+                                   Foreground="{StaticResource titleColor2}"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0"/>
+                    </StackPanel>
+                    
+                    <!--Menu Buttons-->
+                </StackPanel>
             </Border>
             
             <!--main Section-->
