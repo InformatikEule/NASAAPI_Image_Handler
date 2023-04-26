@@ -30,33 +30,40 @@ namespace NASAAPI_Image_Handler
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection conn;
-            try
+            if (String.IsNullOrEmpty(txtUName.Text) && String.IsNullOrEmpty(txtPW.Password))
             {
-                string connString = SecretsCLS.returnSecrets();
-                conn = new SqlConnection(connString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW", conn);
-
-                cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
-                cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
-
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                if (count >= 1)
-                {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Wrong Username, Password or E-Mail!");
-                }
-                conn.Close();
+                MessageBox.Show("You forgot something...");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                SqlConnection conn;
+                try
+                {
+                    string connString = SecretsCLS.returnSecrets();
+                    conn = new SqlConnection(connString);
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW", conn);
+
+                    cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
+                    cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (count >= 1)
+                    {
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong Username, Password or E-Mail!");
+                    }
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 

@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:NASAAPI_Image_Handler"
              StartupUri="LoginScreen.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/Styles/UIColors.xaml"/>
     </Application.Resources>
 </Application>
