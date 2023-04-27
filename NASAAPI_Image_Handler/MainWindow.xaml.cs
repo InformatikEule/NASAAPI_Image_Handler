@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices;
+using System.Runtime;
+using System.Windows.Interop;
 
 namespace NASAAPI_Image_Handler
 {
@@ -23,26 +26,17 @@ namespace NASAAPI_Image_Handler
         public MainWindow()
         {
             InitializeComponent();
+            //only use the workspace of the user-screen when in fullscreen-mode
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 
-        private void btnPercy_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You can see all pictures from the Perceverance Mars-Rover here soon!");
-        }
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void btnCuriosity_Click(object sender, RoutedEventArgs e)
+        private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("You can see all pictures from the Curiosity Mars-Rover here soon!");
-        }
-
-        private void btnSpirit_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You can see all pictures from the Spirit Mars-Rover here soon!");
-        }
-
-        private void btnExoPlanet_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You can see the Images from the NASA-ExoPlanet-API here soon!");
+            WindowInteropHelper helper = new WindowInteropHelper(this);
+            SendMessage(helper.Handle, 161, 2, 0);
         }
     }
 }

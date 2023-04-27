@@ -54,10 +54,19 @@
                     </StackPanel>
                     
                     <!--Menu Buttons-->
+                    <!-- TODO: Add the Number of needed Buttons.-->
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color1}">
-                        <StackPanel>
-
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color2}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="ShuttleSpace" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Perseverance" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -72,6 +81,28 @@
                         <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!--Control Bar-->
+                        <RowDefinition Height="25"/>
+                        <!--Header / Caption-->
+                        <RowDefinition Height="35"/>
+                        <!--Content / Child Views-->
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Control Bar-->
+                    <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown">
+                        
+                    </StackPanel>
+                </Grid>
             </Border>
         </Grid>
     </Border>
