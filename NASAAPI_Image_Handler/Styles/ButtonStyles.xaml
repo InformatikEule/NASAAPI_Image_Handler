@@ -58,7 +58,7 @@
     
     <!--Control Bar Button-->
     <Style x:Key="controlButton" TargetType="Button">
-        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="35"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource textColor3}"/>
         <Setter Property="Template">
@@ -86,5 +86,36 @@
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
         <Setter Property="Width" Value="9"/>
         <Setter Property="Height" Value="9"/>
+    </Style>
+
+    <!--Icon Button-->
+    <Style x:Key="iconButton" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource textColor1}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <!--Mouse over Back color-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Menu Button icon-->
+    <Style x:Key="iconButtonIcon" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
     </Style>
 </ResourceDictionary>

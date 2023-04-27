@@ -11,10 +11,9 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border CornerRadius="10"                    
-            BorderThickness="2"
-            Opacity="0.85">
 
+    <Border CornerRadius="10"                    
+            BorderThickness="2">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="{StaticResource windowBorderColor1}" Offset="0"/>
@@ -52,7 +51,7 @@
                                    VerticalAlignment="Center"
                                    Margin="10,0,0,0"/>
                     </StackPanel>
-                    
+
                     <!--Menu Buttons-->
                     <!-- TODO: Add the Number of needed Buttons.-->
                     <RadioButton Style="{StaticResource menuButton}"
@@ -71,7 +70,7 @@
                     </RadioButton>
                 </StackPanel>
             </Border>
-            
+
             <!--main Section-->
             <Border CornerRadius="0,10,10,0"
                     Grid.Column="1">
@@ -104,7 +103,7 @@
                         <!--Close-->
                         <Button x:Name="btnClose"
                                 Style="{StaticResource controlButton}"
-                                Tag="{StaticResource color4}"
+                                Tag="{StaticResource colorClose}"
                                 Click="btnClose_Click">
                             <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                         </Button>
@@ -112,7 +111,7 @@
                         <!--Maximize-->
                         <Button x:Name="btnMax"
                                 Style="{StaticResource controlButton}"
-                                Tag="{StaticResource color6}"
+                                Tag="{StaticResource colorMax}"
                                 Click="btnMax_Click">
                             <fa:IconImage Icon="Square" Style="{StaticResource controlButtonIcon}"/>
                         </Button>
@@ -125,6 +124,45 @@
                             <fa:IconImage Icon="WindowMinimize" Width="12" Style="{StaticResource controlButtonIcon}"/>
                         </Button>
                     </StackPanel>
+
+                    <!-- Header / Caption-->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+
+                        <!--Caption-->
+                        <StackPanel Grid.Column="0"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center">
+                            <fa:IconImage Icon="Home"
+                                      Height="20"
+                                      Width="20"
+                                      Foreground="{StaticResource titleColor2}"
+                                      Margin="35,0,10,0"/>
+
+                            <TextBlock Text="Dashboard"
+                                   Foreground="{StaticResource titleColor2}"
+                                   FontSize="16"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                        
+                        <!--User Options-->
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+
+                            <Button>
+                                
+                            </Button>
+                        </StackPanel>
+                    </Grid>
                 </Grid>
             </Border>
         </Grid>

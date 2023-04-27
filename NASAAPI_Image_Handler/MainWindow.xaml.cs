@@ -27,7 +27,7 @@ namespace NASAAPI_Image_Handler
         {
             InitializeComponent();
             //only use the workspace of the user-screen when in fullscreen-mode
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            //this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 
         [DllImport("user32.dll")]
