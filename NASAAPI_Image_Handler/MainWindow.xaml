@@ -204,7 +204,7 @@
                     <!--Content Section / Childviews-->
                     <ContentControl 
                                         Grid.Row="2"
-                                        Margin="25">
+                                        Margin="2">
                         <Image Source="/Data/shuttleReflection.jpg"></Image>
                     </ContentControl>
                 </Grid>

@@ -36,16 +36,15 @@ namespace NASAAPI_Image_Handler
             }
             else
             {
-                SqlConnection conn;
                 try
                 {
-                    string connString = SecretsCLS.returnSecrets();
-                    conn = new SqlConnection(connString);
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW", conn);
+                    SqlCLS sql = new SqlCLS();
+                    sql.OpenSqlConnection();
+                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW");
 
                     cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
                     cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
+                    cmd.Connection = SqlCLS.conn;
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     if (count >= 1)
@@ -58,7 +57,7 @@ namespace NASAAPI_Image_Handler
                     {
                         MessageBox.Show("Wrong Username, Password or E-Mail!");
                     }
-                    conn.Close();
+                    cmd.Connection.Close();
                 }
                 catch (Exception ex)
                 {
