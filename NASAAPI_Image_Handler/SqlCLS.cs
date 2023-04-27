@@ -10,24 +10,19 @@ namespace NASAAPI_Image_Handler
 {
     class SqlCLS
     {
-        public static SqlConnection conn;
+        public static SqlConnection conn = null;
         public void OpenSqlConnection()
         {
             try
             {
-
-
-
                 string connString = SecretsCLS.returnSecrets();
                 conn = new SqlConnection(connString);
                 conn.Open();
             }
             catch (Exception e)
             {
-
                 MessageBox.Show("Error opening SQL Connection: " + e);
             }
-
         }
 
         public void LoginSql()

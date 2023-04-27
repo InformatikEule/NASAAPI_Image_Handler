@@ -37,15 +37,14 @@ namespace NASAAPI_Image_Handler
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection conn;
             try
             {
-                string connString = SecretsCLS.returnSecrets(); //remove the part behind the = with your own connection string!
-                conn = new SqlConnection(connString);
-                conn.Open();
-                SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')", conn);
+                SqlCLS sql = new SqlCLS();
+                sql.OpenSqlConnection();
+                SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')");
+                sqlCmd.Connection.Open();
                 sqlCmd.ExecuteNonQuery();
-                conn.Close();
+                sqlCmd.Connection.Close();
                 Popup wnd = new Popup();
                 wnd.Show();
             }
