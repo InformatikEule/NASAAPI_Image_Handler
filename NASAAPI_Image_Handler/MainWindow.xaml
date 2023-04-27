@@ -142,7 +142,7 @@
                                       Width="20"
                                       Foreground="{StaticResource titleColor2}"
                                       Margin="35,0,10,0"/>
-    
+
                             <!--TODO : change Binding-->
                             <TextBlock Text="Dashboard"
                                    Foreground="{StaticResource titleColor2}"
@@ -151,7 +151,7 @@
                                    FontWeight="Medium"
                                    VerticalAlignment="Center"/>
                         </StackPanel>
-                        
+
                         <!--User Options-->
                         <StackPanel Grid.Column="1"
                                     Orientation="Horizontal"
@@ -181,28 +181,35 @@
                                     <ImageBrush ImageSource="/Data/owl_logo.png"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                            
+
                             <!--TODO : needed?-->
                             <Button Style="{StaticResource iconButton}"
                                     Tag="{StaticResource color3}">
                                 <fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}"/>
                             </Button>
-                            
+
                             <Button Style="{StaticResource iconButton}"
                                     Tag="{StaticResource color4}">
                                 <fa:IconImage Icon="Envelope" Style="{StaticResource iconButtonIcon}"/>
                             </Button>
-                            
+
                             <Button Style="{StaticResource iconButton}"
                                     Tag="{StaticResource color5}">
                                 <fa:IconImage Icon="Bell" Style="{StaticResource iconButtonIcon}"/>
                             </Button>
-                            
+
                         </StackPanel>
-                        <!--Content Section / Childviews-->
                     </Grid>
+
+                    <!--Content Section / Childviews-->
+                    <ContentControl 
+                                        Grid.Row="2"
+                                        Margin="25">
+                        <Image Source="/Data/shuttleReflection.jpg"></Image>
+                    </ContentControl>
                 </Grid>
             </Border>
+            
         </Grid>
     </Border>
 
