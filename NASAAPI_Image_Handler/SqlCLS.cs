@@ -10,12 +10,43 @@ namespace NASAAPI_Image_Handler
 {
     class SqlCLS
     {
-        public static SqlConnection conn = null;
+        //    private string host = "localhost";
+        //    private string db = "";
+        //    private string usr = "";
+        //    private string pw = "";
+
+        //    SqlConnection conn;
+
+
+        //    public void openConn()
+        //    {
+        //        SqlConnection conn = new SqlConnection("Server=" + host + ";Database=" + db + ";user=" + usr + ";password=" + pw + ";");
+        //    }
+
+        //    public void schreibeDaten(List<vecFeeds> feeds)
+        //    {
+        //        //SqlConnection conn = new SqlConnection(
+        //        //"Server=" + host + ";Database=" + db + ";user=" + usr + ";password=" + pw + ";"
+        //        //);
+
+        //        SqlCommand cmd = new SqlCommand(
+        //            "CREATE TABLE Kontakte(" +
+        //                "Vorname VARCHAR(30) NOT NULL," +
+        //                "Nachname VARCHAR(30) NOT NULL" +
+        //            ")",
+        //            (SqlConnection)this.conn);
+
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //}
+
+
+        public static SqlConnection conn;
         public void OpenSqlConnection()
         {
             try
             {
-                string connString = SecretsCLS.returnSecrets();
+                string connString = SecretsCLS.returnSecrets(); // remove the part behind the = and replace it with your own connection string!
                 conn = new SqlConnection(connString);
                 conn.Open();
             }

@@ -39,6 +39,7 @@ namespace NASAAPI_Image_Handler
         {
             try
             {
+                //TODO : Connection already closed when being relocated from the createAcc Page
                 SqlCLS sql = new SqlCLS();
                 sql.OpenSqlConnection();
                 SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')");
