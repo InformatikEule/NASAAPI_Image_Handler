@@ -55,14 +55,16 @@
                     <!--Menu Buttons-->
                     <!-- TODO: Add the Number of needed Buttons.-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}">
+                                 Tag="{StaticResource color1}"
+                                 Click="btnDashboard_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}">
+                                 Tag="{StaticResource color2}"
+                                 Click="btnRover_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="ShuttleSpace" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Perseverance" Style="{StaticResource menuButtonText}"/>
@@ -149,7 +151,8 @@
                                    FontSize="16"
                                    FontFamily="Montserrat"
                                    FontWeight="Medium"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center"
+                                   Name="txtPageName"/>
                         </StackPanel>
 
                         <!--User Options-->
@@ -202,11 +205,11 @@
                     </Grid>
 
                     <!--Content Section / Childviews-->
-                    <ContentControl 
-                                        Grid.Row="2"
-                                        Margin="2">
-                        <Image Source="/Data/shuttleReflection.jpg"></Image>
-                    </ContentControl>
+                    <Frame x:Name="contentSpace" 
+                           Grid.Row="2"
+                           Margin="2"
+                           NavigationUIVisibility="Hidden">
+                    </Frame>
                 </Grid>
             </Border>
             

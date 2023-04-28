@@ -66,5 +66,19 @@ namespace NASAAPI_Image_Handler
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void btnRover_Click(object sender, RoutedEventArgs e)
+        {
+            pgRover s1 = new pgRover();   
+            contentSpace.Content = s1.Content;
+            txtPageName.Text = "RoverPage";
+        }
+
+        private void btnDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            pgDashboard s2 = new pgDashboard();
+            contentSpace.Content = s2.Content;
+            txtPageName.Text = "Dashboard";
+        }
     }
 }
