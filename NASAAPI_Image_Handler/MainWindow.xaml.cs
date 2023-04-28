@@ -28,6 +28,7 @@ namespace NASAAPI_Image_Handler
         {
             InitializeComponent();
             SetClock();
+            clsApiFren.InitializeClient();
             //only use the workspace of the user-screen when in fullscreen-mode
             //this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
@@ -81,6 +82,13 @@ namespace NASAAPI_Image_Handler
             pgDashboard s2 = new pgDashboard();
             contentSpace.Content = s2.Content;
             txtPageName.Text = "Dashboard";
+        }
+
+        private void btnApod_Click(object sender, RoutedEventArgs e)
+        {
+            pgApod s3 = new pgApod();
+            contentSpace.Content = s3.Content;
+            txtPageName.Text = "Apod";
         }
 
         void SetClock()

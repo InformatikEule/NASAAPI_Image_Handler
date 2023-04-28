@@ -9,6 +9,24 @@
       Title="pgDashboard">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Iam working on the Dashboard, so for now you can see this Picture:"
+                       Foreground="#fff"
+                       VerticalAlignment="Center"
+                       ></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Image Source="/Data/code.jpg"
+                   Stretch="Fill">
+
+            </Image>
+        </StackPanel>
         
     </Grid>
 </Page>
