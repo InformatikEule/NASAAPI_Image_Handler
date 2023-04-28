@@ -170,11 +170,12 @@
                             </Button>
 
                             <!--TODO : change Binding!-->
-                            <TextBlock Text="Platzhalter"
+                            <TextBlock Text=""
                                        Foreground="{StaticResource titleColor3}"
                                        FontFamily="Montserrat"
                                        FontSize="12"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Name="txtUserName"/>
                             <Ellipse Height="35" Width="35"
                                      Stroke="{StaticResource color2}"
                                      StrokeThickness="2"
@@ -186,7 +187,9 @@
                             </Ellipse>
 
                             <!--TODO : needed?-->
-                            <Button Style="{StaticResource iconButton}"
+                            <TextBlock x:Name="txtDate" Text="" Foreground="#fff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="txtTime" Text="" Margin="10,0,0,0" Foreground="#fff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <!--<Button Style="{StaticResource iconButton}"
                                     Tag="{StaticResource color3}">
                                 <fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}"/>
                             </Button>
@@ -199,7 +202,7 @@
                             <Button Style="{StaticResource iconButton}"
                                     Tag="{StaticResource color5}">
                                 <fa:IconImage Icon="Bell" Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
+                            </Button>-->
 
                         </StackPanel>
                     </Grid>

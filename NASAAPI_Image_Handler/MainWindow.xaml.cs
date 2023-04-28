@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Runtime;
 using System.Windows.Interop;
+using System.Windows.Threading;
 
 namespace NASAAPI_Image_Handler
 {
@@ -26,6 +27,7 @@ namespace NASAAPI_Image_Handler
         public MainWindow()
         {
             InitializeComponent();
+            SetClock();
             //only use the workspace of the user-screen when in fullscreen-mode
             //this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
@@ -79,6 +81,19 @@ namespace NASAAPI_Image_Handler
             pgDashboard s2 = new pgDashboard();
             contentSpace.Content = s2.Content;
             txtPageName.Text = "Dashboard";
+        }
+
+        void SetClock()
+        {
+            DispatcherTimer Dt = new DispatcherTimer();
+            Dt.Tick += new EventHandler(Dt_Tick);
+            Dt.Interval = new TimeSpan(0, 0, 1);
+            Dt.Start();
+        }
+        void Dt_Tick(object sender, EventArgs e)
+        {
+            txtDate.Text = DateTime.Now.ToLongDateString();//("dd:MM:yy");
+            txtTime.Text = DateTime.Now.ToShortTimeString();//("HH:mm:ss");
         }
     }
 }

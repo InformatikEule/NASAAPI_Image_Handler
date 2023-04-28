@@ -6,14 +6,30 @@
       xmlns:local="clr-namespace:NASAAPI_Image_Handler"
       mc:Ignorable="d" 
       d:DesignHeight="630" d:DesignWidth="1050"
-      Title="seiteRover">
+      Title="pgRover"
+      Background="{StaticResource panelActiveColor}">
 
     <Grid>
-        <TextBlock Text="Hallo" Foreground="#fff">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock Text="Testing Stuff, lets begin with Percy!" Margin="10,0,0,0" Foreground="#fff" VerticalAlignment="Center"/>
+            <Button x:Name="btnGo"
+                Height="30" Width="30" 
+                Margin="10,0,0,0"
+                Tag="{StaticResource color1}"
+                Content="Go!"
+                Click="btnGo_Click"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock x:Name="txtRoverName"
+                       Foreground="#fff"
+                       Text=""/>
+            <Image x:Name="imgRover" Height="100" Width="100" Margin="0,0,0,0"/>
+        </StackPanel>
 
-        </TextBlock>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="1000,600,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="10,600,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="1000,10,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

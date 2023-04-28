@@ -24,5 +24,10 @@ namespace NASAAPI_Image_Handler
         {
             InitializeComponent();
         }
+
+        public void btnGo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
