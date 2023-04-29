@@ -38,13 +38,13 @@ namespace NASAAPI_Image_Handler
             {
                 try
                 {
-                    SqlCLS sql = new SqlCLS();
+                    clsSql sql = new clsSql();
                     sql.OpenSqlConnection();
                     SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW");
 
                     cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
                     cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
-                    cmd.Connection = SqlCLS.conn;
+                    cmd.Connection = clsSql.conn;
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     if (count >= 1)

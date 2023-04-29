@@ -16,16 +16,26 @@
         <StackPanel Grid.Row="0"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Iam working on the Dashboard, so for now you can see this Picture:"
+            <TextBlock Text="Iam working on the Dashboard, for now you can see this Picture:"
                        Foreground="#fff"
                        VerticalAlignment="Center"
                        ></TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Image Source="/Data/code.jpg"
-                   Stretch="Fill">
+            <Button Click="btnFull_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="C:\Users\felix\source\repos\NASAAPI_Image_Handler\NASAAPI_Image_Handler\Data\code.jpg"
+                   Stretch="Fill"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10,10,10,10" Height="560"
+                   >
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-            </Image>
         </StackPanel>
         
     </Grid>

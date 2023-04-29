@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace NASAAPI_Image_Handler
 {
-    class SqlCLS
+    class clsSql
     {
         //    private string host = "localhost";
         //    private string db = "";
@@ -46,7 +46,7 @@ namespace NASAAPI_Image_Handler
         {
             try
             {
-                string connString = SecretsCLS.returnSecrets(); // remove the part behind the = and replace it with your own connection string!
+                string connString = clsSecrets.returnSecrets(); // remove the part behind the = and replace it with your own connection string!
                 conn = new SqlConnection(connString);
                 conn.Open();
             }

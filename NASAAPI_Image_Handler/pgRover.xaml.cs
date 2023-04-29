@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -42,9 +43,11 @@ namespace NASAAPI_Image_Handler
                 {
                     //var json = await resp.Content.ReadFromJsonAsync();
 
-                    txtRoverName.Text = await resp.Content.ReadAsStringAsync();
-                    MessageBox.Show(resp.ToString());
-                    //imgRover.Source = resp.Content.
+                    //txtRoverName.Text = await resp.Content.ReadAsStringAsync();
+                    var respCont = await resp.Content.ReadAsStringAsync();
+                    MessageBox.Show(respCont.ToString());
+                    //var jsonStringNewtonsoft = JsonConvert.SerializeObject(respCont);
+                    //MessageBox.Show(jsonStringNewtonsoft);
                 }
                 else
                 {

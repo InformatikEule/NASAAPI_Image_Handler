@@ -62,7 +62,6 @@ namespace NASAAPI_Image_Handler
             {
                 this.WindowState = WindowState.Normal;
             }
-
         }
 
         private void btnMin_Click(object sender, RoutedEventArgs e)

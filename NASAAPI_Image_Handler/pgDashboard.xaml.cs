@@ -24,5 +24,17 @@ namespace NASAAPI_Image_Handler
         {
             InitializeComponent();
         }
+
+        private void btnFull_Click(object sender,  RoutedEventArgs e)
+        {
+            //if (this.PageState == WindowState.Normal)
+            //{
+            //    this.WindowState = WindowState.Maximized;
+            //}
+            //else
+            //{
+            //    this.WindowState = WindowState.Normal;
+            //}
+        }
     }
 }
