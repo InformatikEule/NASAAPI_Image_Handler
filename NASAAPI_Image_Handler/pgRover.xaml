@@ -12,24 +12,26 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-            <TextBlock Text="Testing Stuff, lets begin with Percy!" Margin="10,0,0,0" Foreground="#fff" VerticalAlignment="Center"/>
+            <TextBlock Text="Testing Stuff, lets begin with Percy!" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
             <Button x:Name="btnGo"
                 Height="30" Width="30" 
                 Margin="10,0,0,0"
-                Tag="{StaticResource color1}"
                 Content="Go!"
-                Click="btnGo_Click"></Button>
+                Click="btnGo_Click"
+                Foreground="{StaticResource color3}"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <TextBlock x:Name="txtRoverName"
-                       Foreground="#fff"
-                       Text=""/>
-            <Image x:Name="imgRover" Height="100" Width="100" Margin="0,0,0,0"/>
+                       Foreground="{StaticResource color1}"
+                       Text="here shoud be the na´me of the rover!"
+                       Margin="20,0,0,0"/>
         </StackPanel>
-
-
+        <StackPanel Grid.Row="2">
+            <Image x:Name="imgRover" Source="/Data/shuttleReflection.jpg" Margin="10,10,10,10"/>
+        </StackPanel>
     </Grid>
 </Page>
