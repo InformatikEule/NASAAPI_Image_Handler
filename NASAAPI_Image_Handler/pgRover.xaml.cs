@@ -42,10 +42,10 @@ namespace NASAAPI_Image_Handler
                 if (resp.IsSuccessStatusCode)
                 {
                     //var json = await resp.Content.ReadFromJsonAsync();
-
-                    //txtRoverName.Text = await resp.Content.ReadAsStringAsync();
-                    var respCont = await resp.Content.ReadAsStringAsync();
-                    MessageBox.Show(respCont.ToString());
+                    //MessageBox.Show(await resp.Content.ReadAsStringAsync());
+                    txtRoverName.Text = await resp.Content.ReadAsStringAsync();
+                    //var respCont = await resp.Content.ReadAsStringAsync();
+                    //MessageBox.Show(respCont.ToString());
                     //var jsonStringNewtonsoft = JsonConvert.SerializeObject(respCont);
                     //MessageBox.Show(jsonStringNewtonsoft);
                 }

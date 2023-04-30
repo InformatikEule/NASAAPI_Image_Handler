@@ -37,15 +37,20 @@ namespace NASAAPI_Image_Handler
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            SqlConnection conn;
             try
             {
                 //TODO : Connection already closed when being relocated from the createAcc Page
-                clsSql sql = new clsSql();
-                sql.OpenSqlConnection();
-                SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')");
-                sqlCmd.Connection.Open();
+                //clsSql sql = new clsSql();
+                //sql.OpenSqlConnection();
+                string connString = clsSecrets.returnSecrets();
+                conn = new SqlConnection(connString);
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')", conn);
+                //sqlCmd.Connection.Open();
                 sqlCmd.ExecuteNonQuery();
-                sqlCmd.Connection.Close();
+                //sqlCmd.Connection.Close();
+                conn.Close();
                 Popup wnd = new Popup();
                 wnd.Show();
             }

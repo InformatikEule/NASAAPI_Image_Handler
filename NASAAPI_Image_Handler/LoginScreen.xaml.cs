@@ -36,15 +36,22 @@ namespace NASAAPI_Image_Handler
             }
             else
             {
+
+                SqlConnection conn;
                 try
                 {
-                    clsSql sql = new clsSql();
-                    sql.OpenSqlConnection();
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW");
+
+                    //clsSql sql = new clsSql();
+                    //sql.OpenSqlConnection();
+                    string connString = clsSecrets.returnSecrets();
+                    conn = new SqlConnection(connString);
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW", conn);
 
                     cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
                     cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
-                    cmd.Connection = clsSql.conn;
+                    //cmd.Connection = clsSql.conn;
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     if (count >= 1)
