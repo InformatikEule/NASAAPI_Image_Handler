@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <TextBlock Text="Nasa's Astronomy Picture of the Day. Choose a Date and Click the Button to see the Picture of that Day." Margin="10,0,0,0" Foreground="#fff" VerticalAlignment="Center"/>
-            <TextBlock Text="" Margin="10,0,0,0" Foreground="#fff" VerticalAlignment="Center"/>
+            <TextBlock Text="" Name="txt2" Margin="10,0,0,0" Foreground="#fff" VerticalAlignment="Center"/>
             <DatePicker Name="dateApod"></DatePicker>
             <Button x:Name="btnGo"
                 Height="30" Width="30" 
@@ -30,7 +30,8 @@
                        Foreground="#fff"/>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <Image Source="/Data/code.jpg"></Image>
+            <Image x:Name="PictureImage" Margin="10,10,10,10"></Image>
+            <!--<Image Source=""></Image>-->
         </StackPanel>
 
     </Grid>

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +22,7 @@ namespace NASAAPI_Image_Handler
     /// </summary>
     public partial class pgApod : Page
     {
+        static readonly HttpClient cl = new HttpClient();
         public pgApod()
         {
             InitializeComponent();
@@ -27,8 +30,37 @@ namespace NASAAPI_Image_Handler
 
         private void btnGo_Click(object sender,  RoutedEventArgs e)
         {
-            MessageBox.Show("Click!");
-
+            GetAPOD();
         }
+
+        private async void GetAPOD()
+        {
+            var resp = await cl.GetAsync("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
+            if (resp.IsSuccessStatusCode)
+            {
+                var content = await resp.Content.ReadAsStringAsync();
+                var apodData = JsonConvert.DeserializeObject<ApodData>(content);
+                txtApodDesc.Text = apodData.title;
+                //DateTextBlock.Text = apodData.date;
+                //ExplanationTextBlock.Text = apodData.explanation;
+                BitmapImage image = new BitmapImage(new Uri(apodData.url));
+                PictureImage.Source = image;
+            }
+            else
+            {
+                MessageBox.Show($"Failed to retrieve data. Status code: {resp.StatusCode}");
+            }
+        }
+
+        public class ApodData
+        {
+            public string title { get; set; }
+            public string date { get; set; }
+            public string explanation { get; set; }
+            public string url { get; set; }
+        }
+
     }
 }
+
+
