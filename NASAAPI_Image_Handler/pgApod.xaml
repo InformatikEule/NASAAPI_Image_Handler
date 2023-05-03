@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -26,10 +27,14 @@
                 Click="btnGo_Click"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <TextBlock x:Name="txtApodDesc"
+            <TextBlock x:Name="txtApodTitle"
                        Foreground="#fff"/>
         </StackPanel>
         <StackPanel Grid.Row="2">
+            <TextBlock x:Name="txtApodDesc"
+                       Foreground="#fff"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
             <Image x:Name="PictureImage" Margin="10,10,10,10"></Image>
             <!--<Image Source=""></Image>-->
         </StackPanel>

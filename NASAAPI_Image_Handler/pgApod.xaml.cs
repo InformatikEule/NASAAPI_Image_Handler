@@ -40,11 +40,11 @@ namespace NASAAPI_Image_Handler
             {
                 var content = await resp.Content.ReadAsStringAsync();
                 var apodData = JsonConvert.DeserializeObject<ApodData>(content);
-                txtApodDesc.Text = apodData.title;
+                txtApodTitle.Text = apodData.title;
                 //DateTextBlock.Text = apodData.date;
-                //ExplanationTextBlock.Text = apodData.explanation;
-                BitmapImage image = new BitmapImage(new Uri(apodData.url));
-                PictureImage.Source = image;
+                txtApodDesc.Text = apodData.explanation;
+                BitmapImage img = new BitmapImage(new Uri(apodData.url));
+                PictureImage.Source = img;
             }
             else
             {
