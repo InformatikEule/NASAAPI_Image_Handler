@@ -10,7 +10,7 @@ namespace NASAAPI_Image_Handler
 {
     public static class clsApiFren
     {
-        public  static HttpClient ApiClient { get; set; }
+        public  static HttpClient? ApiClient { get; set; }
 
         public static void InitializeClient()
         {

@@ -8,7 +8,7 @@ namespace NASAAPI_Image_Handler
 {
     internal class clsRoverModel
     {
-        public string rovName {  get; set; }
+        public string? rovName {  get; set; }
         public int sol { get; set;}
     }
 }

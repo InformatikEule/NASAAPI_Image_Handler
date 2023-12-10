@@ -41,7 +41,7 @@ namespace NASAAPI_Image_Handler
         //}
 
 
-        public static SqlConnection conn;
+        public static SqlConnection? conn;
         public void OpenSqlConnection()
         {
             try

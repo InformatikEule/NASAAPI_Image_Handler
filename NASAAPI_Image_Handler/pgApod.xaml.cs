@@ -40,9 +40,9 @@ namespace NASAAPI_Image_Handler
             {
                 var content = await resp.Content.ReadAsStringAsync();
                 var apodData = JsonConvert.DeserializeObject<ApodData>(content);
-                txtApodTitle.Text = apodData.title;
+                txtApodTitle.Text = apodData?.title;
                 //DateTextBlock.Text = apodData.date;
-                txtApodDesc.Text = apodData.explanation;
+                txtApodDesc.Text = apodData?.explanation;
                 BitmapImage img = new BitmapImage(new Uri(apodData.url));
                 PictureImage.Source = img;
             }
@@ -54,12 +54,11 @@ namespace NASAAPI_Image_Handler
 
         public class ApodData
         {
-            public string title { get; set; }
-            public string date { get; set; }
-            public string explanation { get; set; }
-            public string url { get; set; }
+            public string? title { get; set; }
+            public string? date { get; set; }
+            public string? explanation { get; set; }
+            public string? url { get; set; }
         }
-
     }
 }
 
