@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NASAAPI_Image_Handler"
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
       d:DesignHeight="630" d:DesignWidth="1050"
       Title="pgApod">
@@ -14,6 +15,7 @@
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <TextBlock Text="Nasa's Astronomy Picture of the Day. Choose a Date and Click the Button to see the Picture of that Day." Margin="10,0,0,0" Foreground="#fff" VerticalAlignment="Center"/>
@@ -36,10 +38,30 @@
                        Foreground="#fff"/>
         </StackPanel>
         <StackPanel Grid.Row="3">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="600">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,10,50,50" Height="auto">
                 <Image x:Name="PictureImage"></Image>
                 <!--<Image Source=""></Image>-->
             </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Button Style="{StaticResource subMenuButton}"
+                                 Tag="{StaticResource colorClose}"
+                                 Click="btnSaveFav_Click"
+                         Margin="10,0,10,0">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Heart" Style="{StaticResource subMenuButtonIcon}"/>
+                    <TextBlock Text="Add to Fav's" Style="{StaticResource subMenuButtonText}"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource subMenuButton}"
+                                 Tag="{StaticResource color2}"
+                                 Click="btnSaveFav_Click"
+                         Margin="10,0,10,0">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Eye" Style="{StaticResource subMenuButtonIcon}"/>
+                    <TextBlock Text="View Fav's" Style="{StaticResource menuButtonText}"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
 
     </Grid>

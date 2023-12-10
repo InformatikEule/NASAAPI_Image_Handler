@@ -42,7 +42,6 @@ namespace NASAAPI_Image_Handler
             var resp = await cl.GetAsync($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={pickedDate}");
             if (resp.IsSuccessStatusCode)
             {
-                MessageBox.Show("resp hier :" + resp);
                 var content = await resp.Content.ReadAsStringAsync();
                 var apodData = JsonConvert.DeserializeObject<ApodData>(content);
                 txtApodTitle.Text = apodData?.title;
@@ -53,9 +52,13 @@ namespace NASAAPI_Image_Handler
             }
             else
             {
-                MessageBox.Show("resp hier :" + resp);
                 MessageBox.Show($"failed to retrieve data. status code: {resp.StatusCode}");
             }
+        }
+
+        private void btnSaveFav_Click(Object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hier kannst du deine Lieblingsbilder bald speichern!");
         }
 
         public class ApodData
