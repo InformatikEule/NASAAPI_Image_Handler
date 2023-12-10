@@ -90,6 +90,13 @@ namespace NASAAPI_Image_Handler
             txtPageName.Text = "Apod";
         }
 
+        private void btnFavs_Click(object sender, RoutedEventArgs e)
+        {
+            pgFavs s4 = new pgFavs();
+            contentSpace.Content = s4.Content;
+            txtPageName.Text = "Favs";
+        }
+
         void SetClock()
         {
             DispatcherTimer Dt = new DispatcherTimer();
@@ -101,6 +108,11 @@ namespace NASAAPI_Image_Handler
         {
             txtDate.Text = DateTime.Now.ToLongDateString();//("dd:MM:yy");
             txtTime.Text = DateTime.Now.ToShortTimeString();//("HH:mm:ss");
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

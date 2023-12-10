@@ -78,6 +78,14 @@
                             <TextBlock Text="Apod" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color4}"
+                                 Click="btnFavs_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Heart" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Favorites" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
                 </StackPanel>
             </Border>
 

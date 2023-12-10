@@ -37,23 +37,23 @@
             <TextBlock x:Name="txtApodDesc"
                        Foreground="#fff"/>
         </StackPanel>
-        <StackPanel Grid.Row="3">
+        <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,10,50,50" Height="auto">
                 <Image x:Name="PictureImage"></Image>
                 <!--<Image Source=""></Image>-->
             </ScrollViewer>
         </StackPanel>
-        <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+        <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Style="{StaticResource subMenuButton}"
                                  Tag="{StaticResource colorClose}"
                                  Click="btnSaveFav_Click"
                          Margin="10,0,10,0">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="Heart" Style="{StaticResource subMenuButtonIcon}"/>
-                    <TextBlock Text="Add to Fav's" Style="{StaticResource subMenuButtonText}"/>
+                    <TextBlock Text="" Style="{StaticResource subMenuButtonText}"/>
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource subMenuButton}"
+            <!--<Button Style="{StaticResource subMenuButton}"
                                  Tag="{StaticResource color2}"
                                  Click="btnSaveFav_Click"
                          Margin="10,0,10,0">
@@ -61,7 +61,7 @@
                     <fa:IconImage Icon="Eye" Style="{StaticResource subMenuButtonIcon}"/>
                     <TextBlock Text="View Fav's" Style="{StaticResource menuButtonText}"/>
                 </StackPanel>
-            </Button>
+            </Button>-->
         </StackPanel>
 
     </Grid>
