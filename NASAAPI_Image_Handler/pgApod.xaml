@@ -38,10 +38,8 @@
                        Foreground="#fff"/>
         </StackPanel>
         <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,10,50,50" Height="auto">
-                <Image x:Name="PictureImage"></Image>
+            <Image x:Name="PictureImage" Stretch="Fill" Height="Auto"></Image>
                 <!--<Image Source=""></Image>-->
-            </ScrollViewer>
         </StackPanel>
         <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Style="{StaticResource subMenuButton}"

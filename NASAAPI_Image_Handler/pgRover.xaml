@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NASAAPI_Image_Handler"
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
       d:DesignHeight="630" d:DesignWidth="1050"
       Title="pgRover"
@@ -14,14 +15,15 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <TextBlock Text="Testing Stuff, lets begin with Percy!" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
-            <Button x:Name="btnGo"
+            <Button x:Name="btnPerc"
                 Height="30" Width="30" 
                 Margin="10,0,0,0"
                 Content="Go!"
-                Click="btnGo_Click"
+                Click="btnPercFav_Click"
                 Foreground="{StaticResource color3}"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
@@ -32,6 +34,17 @@
         </StackPanel>
         <StackPanel Grid.Row="2">
             <Image x:Name="imgRover" Source="/Data/shuttleReflection.jpg" Margin="10,10,10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Style="{StaticResource subMenuButton}"
+                                 Tag="{StaticResource colorClose}"
+                                 Click="btnPercFav_Click"
+                         Margin="10,0,10,0">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Heart" Style="{StaticResource subMenuButtonIcon}"/>
+                    <TextBlock Text="" Style="{StaticResource subMenuButtonText}"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

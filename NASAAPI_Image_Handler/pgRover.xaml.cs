@@ -55,5 +55,10 @@ namespace NASAAPI_Image_Handler
                 }
             }
         }
+
+        private void btnPercFav_Click(Object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("bald!");
+        }
     }
 }

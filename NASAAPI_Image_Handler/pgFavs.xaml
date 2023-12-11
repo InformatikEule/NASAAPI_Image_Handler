@@ -9,6 +9,9 @@
       Title="pgFavs">
 
     <Grid>
+        <TextBlock Text="erst alle bilder anzeigen, order by date descent, oder so. trotzdem ein feld zum sortieren einfügen!" Foreground="#fff">
+            
+        </TextBlock>
         
     </Grid>
 </Page>
