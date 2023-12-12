@@ -23,23 +23,35 @@ namespace NASAAPI_Image_Handler
     public partial class pgApod : Page
     {
         static readonly HttpClient cl = new HttpClient();
+        string comparedDate;
+
         public pgApod()
         {
             InitializeComponent();
+        }   
+
+        public string compareDate()
+        {
+            var today = DateTime.Today;
+            var pickedDate = dateApod?.SelectedDate;
+            var comparedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];    //dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
+            //var today = DateTime.Today.ToString("yyyy-MM-dd").Split(' ')[0];
+            //var pickedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
+            if (pickedDate < today)
+            {
+                GetAPOD(comparedDate);
+                return comparedDate;
+            }
+            else
+            {
+                return "";
+            }
         }
 
-        private void btnGo_Click(object sender,  RoutedEventArgs e)
+        private async void GetAPOD(string comparedDate)
         {
-            GetAPOD();
-            //var pickedDateTest = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
-            //var respTest = ($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={pickedDateTest}asd");
-            //MessageBox.Show("Test hier: " + respTest);
-        }
-
-        private async void GetAPOD()
-        {
-            var pickedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
-            var resp = await cl.GetAsync($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={pickedDate}");
+            compareDate();
+            var resp = await cl.GetAsync($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={comparedDate}");
             if (resp.IsSuccessStatusCode)
             {
                 var content = await resp.Content.ReadAsStringAsync();
@@ -56,9 +68,22 @@ namespace NASAAPI_Image_Handler
             }
         }
 
+        private void btnGo_Click(object sender, RoutedEventArgs e)
+        {
+            GetAPOD(comparedDate);
+            //var pickedDateTest = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
+            //var respTest = ($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={pickedDateTest}asd");
+            //MessageBox.Show("Test hier: " + respTest);
+        }
+
         private void btnSaveFav_Click(Object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hier kannst du deine Lieblingsbilder bald speichern!");
+            var today = DateTime.Today;
+            var pickedDate = dateApod?.SelectedDate;
+            var comparedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];    //dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
+            MessageBox.Show("today: " + today);
+            MessageBox.Show("comp: " + comparedDate);
+            //MessageBox.Show("Hier kannst du deine Lieblingsbilder bald speichern!");
         }
 
         public class ApodData
