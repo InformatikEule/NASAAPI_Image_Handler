@@ -33,18 +33,22 @@ namespace NASAAPI_Image_Handler
         public string compareDate()
         {
             var today = DateTime.Today;
+            var td2 = today.Date;
+            var todayChanged = today.ToString("yyyy-MM-dd").Split(' ')[0];
             var pickedDate = dateApod?.SelectedDate;
+            //var p2 = pickedDate.
             var comparedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];    //dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
             //var today = DateTime.Today.ToString("yyyy-MM-dd").Split(' ')[0];
             //var pickedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
-            if (pickedDate < today)
+            if (pickedDate > today)
             {
-                GetAPOD(comparedDate);
-                return comparedDate;
+                return "";
+
             }
             else
             {
-                return "";
+                GetAPOD(comparedDate);
+                return comparedDate;
             }
         }
 
@@ -78,10 +82,13 @@ namespace NASAAPI_Image_Handler
 
         private void btnSaveFav_Click(Object sender, RoutedEventArgs e)
         {
+            //var paramDate = DateTime.ParseExact(DateTime.Today, "yyyy-MM-dd");
             var today = DateTime.Today;
+            var todayChanged = today.ToString("yyyy-MM-dd").Split(' ')[0];
             var pickedDate = dateApod?.SelectedDate;
             var comparedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];    //dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
             MessageBox.Show("today: " + today);
+            MessageBox.Show("CHANGED: " + pickedDate);
             MessageBox.Show("comp: " + comparedDate);
             //MessageBox.Show("Hier kannst du deine Lieblingsbilder bald speichern!");
         }

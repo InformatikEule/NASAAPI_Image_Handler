@@ -37,10 +37,10 @@
             <TextBlock x:Name="txtApodDesc"
                        Foreground="#fff"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-            <Image x:Name="PictureImage" Stretch="Fill" Height="Auto"></Image>
+        <DockPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image x:Name="PictureImage" Stretch="Fill" DockPanel.Dock="Top"></Image>
                 <!--<Image Source=""></Image>-->
-        </StackPanel>
+        </DockPanel>
         <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Style="{StaticResource subMenuButton}"
                                  Tag="{StaticResource colorClose}"
