@@ -47,7 +47,7 @@ namespace NASAAPI_Image_Handler
                     conn = new SqlConnection(connString);
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW=@txtPW", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW*-PW", conn);
 
                     cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
                     cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
