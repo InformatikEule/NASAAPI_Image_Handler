@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -51,9 +52,10 @@ namespace NASAAPI_Image_Handler
         //        return comparedDate;
         //    }
         //}
-
+        string apodURL;
         private async void GetAPOD()
         {
+            
             var resp = await cl.GetAsync("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
             //var pickedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
             //var resp = await cl.GetAsync($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={pickedDate}");
@@ -67,35 +69,15 @@ namespace NASAAPI_Image_Handler
                 //datetextblock.text = apoddata.date;
                 txtApodDesc.Text = apodData?.explanation;
                 BitmapImage img = new BitmapImage(new Uri(apodData.url));
+                string apodURL = apodData.url;
+                MessageBox.Show(apodURL);
                 PictureImage.Source = img;
             }
             else
             {
                 MessageBox.Show($"Failed to retrieve data. Status code: {resp.StatusCode}");
-                MessageBox.Show("resp hier :" + resp);
-                MessageBox.Show($"failed to retrieve data. status code: {resp.StatusCode}");
             }
         }
-
-        //private async void GetAPOD(string comparedDate)
-        //{
-        //    compareDate();
-        //    var resp = await cl.GetAsync($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={comparedDate}");
-        //    if (resp.IsSuccessStatusCode)
-        //    {
-        //        var content = await resp.Content.ReadAsStringAsync();
-        //        var apodData = JsonConvert.DeserializeObject<ApodData>(content);
-        //        txtApodTitle.Text = apodData?.title;
-        //        //datetextblock.text = apoddata.date;
-        //        txtApodDesc.Text = apodData?.explanation;
-        //        BitmapImage img = new BitmapImage(new Uri(apodData.url));
-        //        PictureImage.Source = img;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show($"failed to retrieve data. status code: {resp.StatusCode}");
-        //    }
-        //}
 
         private void btnGo_Click(object sender, RoutedEventArgs e)
         {
@@ -107,12 +89,13 @@ namespace NASAAPI_Image_Handler
 
         private void btnSaveFav_Click(Object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("hallo" + apodURL);
             //var paramDate = DateTime.ParseExact(DateTime.Today, "yyyy-MM-dd");
-            var today = DateTime.Today;
-            DateTime d = Convert.ToDateTime("yyyy-MM-dd");
-            var todayChanged = today.ToString("yyyy-MM-dd").Split(' ')[0];
-            var pickedDate = dateApod?.SelectedDate;
-            var comparedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];    //dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
+            //var today = DateTime.Today;
+            //DateTime d = Convert.ToDateTime("yyyy-MM-dd");
+            //var todayChanged = today.ToString("yyyy-MM-dd").Split(' ')[0];
+            //var pickedDate = dateApod?.SelectedDate;
+            //var comparedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];    //dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
             //var asd = comparedDate.
             //MessageBox.Show("today: " + d);
             //MessageBox.Show("CHANGED: " + pickedDate);

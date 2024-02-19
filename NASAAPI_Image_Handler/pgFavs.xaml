@@ -3,15 +3,35 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:NASAAPI_Image_Handler"
+      xmlns:local="clr-namespace:NASAAPI_Image_Handler" xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="pgFavs">
 
     <Grid>
-        <TextBlock Text="erst alle bilder anzeigen, order by date descent, oder so. trotzdem ein feld zum sortieren einfügen!" Foreground="#fff">
-            
-        </TextBlock>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock Text="Your Favorites" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Image x:Name="imgRover" Source="/Data/shuttleReflection.jpg" Margin="10,10,10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Style="{StaticResource subMenuButton}"
+                                 Tag="{StaticResource colorClose}"
+                         Margin="10,0,10,0">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Heart" Style="{StaticResource subMenuButtonIcon}"/>
+                    <TextBlock Text="" Style="{StaticResource subMenuButtonText}"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
