@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static NASAAPI_Image_Handler.pgApod;
 
 namespace NASAAPI_Image_Handler
 {
@@ -33,6 +34,13 @@ namespace NASAAPI_Image_Handler
 
         }
 
+        public class RoverData
+        {
+            public string? rover { get; set; }
+            public string? img_src { get; set; }
+            public string? camera{ get; set; }
+        }
+
         private async void btnGo_Click(object sender, RoutedEventArgs e)
         {
             using(HttpClient client = new HttpClient())
@@ -41,13 +49,9 @@ namespace NASAAPI_Image_Handler
                 resp.EnsureSuccessStatusCode();
                 if (resp.IsSuccessStatusCode)
                 {
-                    //var json = await resp.Content.ReadFromJsonAsync();
-                    //MessageBox.Show(await resp.Content.ReadAsStringAsync());
-                    txtRoverName.Text = await resp.Content.ReadAsStringAsync();
-                    //var respCont = await resp.Content.ReadAsStringAsync();
-                    //MessageBox.Show(respCont.ToString());
-                    //var jsonStringNewtonsoft = JsonConvert.SerializeObject(respCont);
-                    //MessageBox.Show(jsonStringNewtonsoft);
+                    var content = await resp.Content.ReadAsStringAsync();
+                    var roverData = JsonConvert.DeserializeObject<RoverData>(content);
+                    txtRoverName.Text = roverData?.rover;
                 }
                 else
                 {
@@ -55,6 +59,7 @@ namespace NASAAPI_Image_Handler
                 }
             }
         }
+
 
         private void btnPercFav_Click(Object sender, RoutedEventArgs e)
         {

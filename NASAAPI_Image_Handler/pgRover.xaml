@@ -19,17 +19,16 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <TextBlock Text="Testing Stuff, lets begin with Percy!" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
-            <Button x:Name="btnPerc"
+            <Button x:Name="btnGo"
                 Height="30" Width="30" 
                 Margin="10,0,0,0"
                 Content="Go!"
-                Click="btnPercFav_Click"
+                Click="btnGo_Click"
                 Foreground="{StaticResource color3}"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <TextBlock x:Name="txtRoverName"
                        Foreground="{StaticResource color1}"
-                       Text="here shoud be the na´me of the rover!"
                        Margin="20,0,0,0"/>
         </StackPanel>
         <StackPanel Grid.Row="2">

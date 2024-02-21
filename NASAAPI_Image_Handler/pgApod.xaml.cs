@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static NASAAPI_Image_Handler.pgApod;
 
 namespace NASAAPI_Image_Handler
 {
@@ -52,16 +53,13 @@ namespace NASAAPI_Image_Handler
         //        return comparedDate;
         //    }
         //}
-        string apodURL;
         private async void GetAPOD()
         {
-            
             var resp = await cl.GetAsync("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
             //var pickedDate = dateApod?.SelectedDate?.ToString("yyyy-MM-dd").Split(' ')[0];
             //var resp = await cl.GetAsync($"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date={pickedDate}");
             if (resp.IsSuccessStatusCode)
             {
-                MessageBox.Show("resp hier :" + resp);
                 var content = await resp.Content.ReadAsStringAsync();
                 var apodData = JsonConvert.DeserializeObject<ApodData>(content);
                 txtApodTitle.Text = apodData?.title;
@@ -89,7 +87,7 @@ namespace NASAAPI_Image_Handler
 
         private void btnSaveFav_Click(Object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("hallo" + apodURL);
+            MessageBox.Show("hallo");
             //var paramDate = DateTime.ParseExact(DateTime.Today, "yyyy-MM-dd");
             //var today = DateTime.Today;
             //DateTime d = Convert.ToDateTime("yyyy-MM-dd");
