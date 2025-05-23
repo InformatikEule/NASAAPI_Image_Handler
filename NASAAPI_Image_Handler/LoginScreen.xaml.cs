@@ -1,4 +1,4 @@
-﻿
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,18 +36,20 @@ namespace NASAAPI_Image_Handler
             }
             else
             {
-
-                SqlConnection conn;
+                MySqlConnection conn;
                 try
                 {
-
-                    //clsSql sql = new clsSql();
-                    //sql.OpenSqlConnection();
-                    string connString = clsSecrets.returnSecrets();
-                    conn = new SqlConnection(connString);
+                    string server = "localhost";
+                    string db = "test";
+                    string user = "root";
+                    string pw = "";
+                    //string connString = clsMySql.returnSecrets();
+                    string connString = string.Format("server={0};database={1};user={2};password={3};", server, db, user, pw);
+                    conn = new MySqlConnection(connString);
+                    Console.WriteLine(conn);
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Accounts WHERE UName=@txtUName AND UPW*-PW", conn);
+                    MySqlCommand cmd = new MySqlCommand("SELECT COUNT(1) FROM Accounts WHERE USERNAME=@txtUName AND PASSWORD=@txtPW", conn);
 
                     cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
                     cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);

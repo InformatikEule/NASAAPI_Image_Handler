@@ -57,20 +57,20 @@ namespace NASAAPI_Image_Handler
         //}
 
 
-        public static SqlConnection? conn;
-        public void OpenSqlConnection()
-        {
-            try
-            {
-                string connString = clsSecrets.returnSecrets(); // remove the part behind the = and replace it with your own connection string!
-                conn = new SqlConnection(connString);
-                conn.Open();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error opening SQL Connection: " + e);
-            }
-        }
+        //public static SqlConnection? conn;
+        //public void OpenSqlConnection()
+        //{
+        //    try
+        //    {
+        //        string connString = clsSecrets.returnSecrets(); // remove the part behind the = and replace it with your own connection string!
+        //        conn = new SqlConnection(connString);
+        //        conn.Open();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show("Error opening SQL Connection: " + e);
+        //    }
+        //}
 
         public void LoginSql()
         {

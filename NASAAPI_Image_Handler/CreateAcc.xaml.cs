@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace NASAAPI_Image_Handler
 {
@@ -37,28 +39,49 @@ namespace NASAAPI_Image_Handler
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection conn;
-            try
+            MySqlConnection conn;
+            try 
             {
-                //TODO : Connection already closed when being relocated from the createAcc Page
-                //clsSql sql = new clsSql();
-                //sql.OpenSqlConnection();
-                string connString = clsSecrets.returnSecrets();
-                conn = new SqlConnection(connString);
+                string server = "localhost";
+                string db = "test";
+                string user = "root";
+                string pw = "";
+                //string connString = clsMySql.returnSecrets();
+                string connString = string.Format("server={0};database={1};user={2};password={3};", server, db, user, pw);
+                conn = new MySqlConnection(connString);
+                //Console.WriteLine(conn);
                 conn.Open();
-                SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')", conn);
-                //sqlCmd.Connection.Open();
+                MySqlCommand sqlCmd = new MySqlCommand("INSERT INTO accounts VALUES('" + txtUName.Text + "', '" + txtPW.Password + "', '" + txtUMail.Text + "')", conn);
                 sqlCmd.ExecuteNonQuery();
-                //sqlCmd.Connection.Close();
-                conn.Close();
-                Popup wnd = new Popup();
-                wnd.Show();
-            }
-            catch (Exception ex)
+                
+
+            } catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error writing into DB: " + ex.Message);
             }
-            finally { this.Close(); }
+
+            //SqlConnection conn;
+            //try
+            //{
+            //    //TODO : Connection already closed when being relocated from the createAcc Page
+            //    //clsSql sql = new clsSql();
+            //    //sql.OpenSqlConnection();
+            //    string connString = clsSecrets.returnSecrets();
+            //    conn = new SqlConnection(connString);
+            //    conn.Open();
+            //    SqlCommand sqlCmd = new SqlCommand("INSERT INTO Accounts VALUES('" + txtUName.Text + "', '" + txtUMail.Text + "', '" + txtPW.Password + "')", conn);
+            //    //sqlCmd.Connection.Open();
+            //    sqlCmd.ExecuteNonQuery();
+            //    //sqlCmd.Connection.Close();
+            //    conn.Close();
+            //    Popup wnd = new Popup();
+            //    wnd.Show();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
+            //finally { this.Close(); }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
