@@ -178,7 +178,9 @@
                                     VerticalAlignment="Center"
                                     Margin="0,0,10,0">
 
-                            <Button Style="{StaticResource iconButton}"
+                            <Button x:Name="btnAcc"
+                                    Click="btnAcc_Click"
+                                    Style="{StaticResource iconButton}"
                                     Tag="{StaticResource color1}">
                                 <fa:IconImage Icon="AngleDown" 
                                               Height="12" Width="12"

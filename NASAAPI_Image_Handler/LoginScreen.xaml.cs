@@ -49,11 +49,10 @@ namespace NASAAPI_Image_Handler
                     Console.WriteLine(conn);
                     conn.Open();
 
-                    MySqlCommand cmd = new MySqlCommand("SELECT COUNT(1) FROM Accounts WHERE USERNAME=@txtUName AND PASSWORD=@txtPW", conn);
+                    MySqlCommand cmd = new MySqlCommand("SELECT COUNT(1) FROM Accounts WHERE account_name=@txtUName AND account_password=@txtPW", conn);
 
                     cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
                     cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
-                    //cmd.Connection = clsSql.conn;
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     if (count >= 1)

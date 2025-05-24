@@ -97,6 +97,12 @@ namespace NASAAPI_Image_Handler
             txtPageName.Text = "Favs";
         }
 
+        private void btnAcc_Click(object sender, RoutedEventArgs e) { 
+            pgAcc s5 = new pgAcc();
+            contentSpace.Content = s5.Content;
+            txtPageName.Text = "My Account";
+        }
+
         void SetClock()
         {
             DispatcherTimer Dt = new DispatcherTimer();
