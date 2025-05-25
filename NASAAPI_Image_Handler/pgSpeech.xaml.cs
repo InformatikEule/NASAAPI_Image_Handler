@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
 using System.Windows;
@@ -16,13 +17,26 @@ namespace NASAAPI_Image_Handler
         {
             InitializeComponent();
             synthesizer = new SpeechSynthesizer();
-            synthesizer.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
         }
 
-        private void btnTalk_Click(object sender, RoutedEventArgs e)
+        private void BtnSpeakText_Click(object sender, RoutedEventArgs e)
         {
-            synthesizer.SpeakAsync("Hallo");
+            string text = InputTextBox.Text;
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                synthesizer.SpeakAsync(text);
+            }
+            else
+            {
+                MessageBox.Show("Bitte gib einen Text ein.", "Hinweis", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void BtnSpeakDateTime_Click(object sender, RoutedEventArgs e)
+        {
+            string timeInfo = $"It is {DateTime.Now.ToString("T", CultureInfo.InvariantCulture)} on {DateTime.Now.ToString("D", new CultureInfo("en-US"))}";
+            //string timeInfo = $"It is {DateTime.Now.ToLongTimeString()} on {DateTime.Now.ToLongDateString()}";
+            synthesizer.SpeakAsync(timeInfo);
         }
     }
-
 }
