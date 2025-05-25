@@ -103,6 +103,13 @@ namespace NASAAPI_Image_Handler
             txtPageName.Text = "My Account";
         }
 
+        private void btnSpeech_Click(object sender, RoutedEventArgs e)
+        {
+            pgSpeech s6= new pgSpeech();
+            contentSpace.Content= s6.Content;
+            txtPageName.Text = "Testing Text 2 Speech!";
+        }
+
         void SetClock()
         {
             DispatcherTimer Dt = new DispatcherTimer();

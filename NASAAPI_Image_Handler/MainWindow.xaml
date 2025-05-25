@@ -86,6 +86,14 @@
                             <TextBlock Text="Favorites" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color5}"
+                                 Click="btnSpeech_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Comment" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Text 2 Speech" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
                 </StackPanel>
             </Border>
 
