@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static NASAAPI_Image_Handler.clsUserData;
 
 namespace NASAAPI_Image_Handler
 {
@@ -36,36 +37,38 @@ namespace NASAAPI_Image_Handler
             }
             else
             {
-                MySqlConnection conn;
-                try
+            MySqlConnection conn;
+            try
+            {
+
+                string server = "localhost";
+                string db = "test";
+                string user = "root";
+                string pw = "";
+                //string connString = clsMySql.returnSecrets();
+                string connString = string.Format("server={0};database={1};user={2};password={3};", server, db, user, pw);
+                conn = new MySqlConnection(connString);
+                Console.WriteLine(conn);
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SELECT COUNT(1) FROM Accounts WHERE account_name=@txtUName AND account_password=@txtPW", conn);
+
+                cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
+                cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count >= 1)
                 {
-                    string server = "localhost";
-                    string db = "test";
-                    string user = "root";
-                    string pw = "";
-                    //string connString = clsMySql.returnSecrets();
-                    string connString = string.Format("server={0};database={1};user={2};password={3};", server, db, user, pw);
-                    conn = new MySqlConnection(connString);
-                    Console.WriteLine(conn);
-                    conn.Open();
-
-                    MySqlCommand cmd = new MySqlCommand("SELECT COUNT(1) FROM Accounts WHERE account_name=@txtUName AND account_password=@txtPW", conn);
-
-                    cmd.Parameters.AddWithValue("@txtUName", txtUName.Text);
-                    cmd.Parameters.AddWithValue("@txtPW", txtPW.Password);
-
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    if (count >= 1)
-                    {
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Wrong Username, Password or E-Mail!");
-                    }
-                    cmd.Connection.Close();
+                    UserService _userService = new UserService();
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Username, Password or E-Mail!");
+                }
+                cmd.Connection.Close();
                 }
                 catch (Exception ex)
                 {

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static NASAAPI_Image_Handler.clsUserData;
 
 namespace NASAAPI_Image_Handler
 {
@@ -20,9 +21,20 @@ namespace NASAAPI_Image_Handler
     /// </summary>
     public partial class pgAcc : Page
     {
+        //public User CurrentUser { get; set; }
         public pgAcc()
         {
             InitializeComponent();
+
+            //CurrentUser = new User
+            //{
+            //    Username = GetCachedUsername(),
+            //    Usermail = "max@example.com",
+            //    //Password = "geheim123"
+            //};
+
+            //DataContext = CurrentUser;
+            //PasswordBox.Password = CurrentUser.Password;
         }
     }
 }
