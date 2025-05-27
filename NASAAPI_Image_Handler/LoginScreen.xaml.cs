@@ -40,7 +40,7 @@ namespace NASAAPI_Image_Handler
             MySqlConnection conn;
             try
             {
-
+                //CREATE TABLE accounts (ID Int, account_name VARCHAR (255), account_password VARCHAR (255), account_mail VARCHAR (255), account_pic VARCHAR (50));
                 string server = "localhost";
                 string db = "test";
                 string user = "root";

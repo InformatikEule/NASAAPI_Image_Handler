@@ -27,6 +27,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0" Margin="0,0,0,10">
@@ -43,7 +44,12 @@
                     <TextBlock Foreground="White" Text="Passwort:" FontWeight="Bold"/>
                     <PasswordBox x:Name="PasswordBox" IsEnabled="False"/>
                 </StackPanel>
+                <StackPanel Grid.Row="3">
+                    <TextBlock Foreground="White" Text="Profile Picture:" FontWeight="Bold"/>
+                    <Image  Name="picProfile" Height="100" Width="100"/>
+                </StackPanel>
             </Grid>
+
         </StackPanel>
 
     </Grid>

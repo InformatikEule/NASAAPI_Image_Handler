@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,12 @@ namespace NASAAPI_Image_Handler
 
             //DataContext = CurrentUser;
             //PasswordBox.Password = CurrentUser.Password;
+            void loadImage()
+            {
+                //var path = Path.Combine(Environment.CurrentDirectory, "Data", "owl_logo.jpg");
+                //var uri = new Uri(path);
+                //image1.Source = bitmap;
+            }
         }
     }
 }

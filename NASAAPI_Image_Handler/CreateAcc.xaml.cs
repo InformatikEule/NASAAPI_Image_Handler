@@ -12,8 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
+using System.Xml;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using MySqlX.XDevAPI.Relational;
+using static Mysqlx.Expect.Open.Types.Condition.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace NASAAPI_Image_Handler
 {
@@ -42,6 +48,23 @@ namespace NASAAPI_Image_Handler
             MySqlConnection conn;
             try 
             {
+                ////DB ver. 2:
+                //-- Tabelle "account"
+                //CREATE TABLE account(
+//                    id INT AUTO_INCREMENT PRIMARY KEY,
+//                    name VARCHAR(255) NOT NULL,
+//                    password VARCHAR(255) NOT NULL,
+//                    mail VARCHAR(255) NOT NULL UNIQUE
+//                );
+
+//                --Tabelle "account_settings"
+//CREATE TABLE account_settings(
+//    id INT PRIMARY KEY,
+//    user_picture VARCHAR(255),
+//    FOREIGN KEY(id) REFERENCES account(id) ON DELETE CASCADE
+//);
+
+                //INSERT INTO accounts VALUES('', 'F', '123', 'F@web.de', 'owl_logo.jpg')
                 string server = "localhost";
                 string db = "test";
                 string user = "root";
@@ -49,13 +72,15 @@ namespace NASAAPI_Image_Handler
                 string connString = string.Format("server={0};database={1};user={2};password={3};", server, db, user, pw);
                 conn = new MySqlConnection(connString);
                 conn.Open();
-                MySqlCommand sqlCmd = new MySqlCommand("INSERT INTO accounts VALUES('' ,'" + txtUName.Text + "', '" + txtPW.Password + "', '" + txtUMail.Text + "')", conn);
+                MySqlCommand sqlCmd = new MySqlCommand("INSERT INTO accounts VALUES('' ,'" + txtUName.Text + "', '" + txtPW.Password + "', '" + txtUMail.Text + "', '" + txtUPic.Text + "')", conn);
 
                 int count = Convert.ToInt32(sqlCmd.ExecuteNonQuery());
                 if (count >= 1)
                 {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
+                    Popup Pu = new Popup();
+                    Pu.Show();
+                    //MainWindow mainWindow = new MainWindow();
+                    //mainWindow.Show();
                     this.Close();
                 }
                 else
