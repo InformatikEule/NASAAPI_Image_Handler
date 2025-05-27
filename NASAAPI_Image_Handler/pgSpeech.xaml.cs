@@ -34,9 +34,20 @@ namespace NASAAPI_Image_Handler
 
         private void BtnSpeakDateTime_Click(object sender, RoutedEventArgs e)
         {
-            string timeInfo = $"It is {DateTime.Now.ToString("T", CultureInfo.InvariantCulture)} on {DateTime.Now.ToString("D", new CultureInfo("en-US"))}";
+            string timeInfo = $"Es ist {DateTime.Now.ToString("T", CultureInfo.InvariantCulture)} am {DateTime.Now.ToString("D", new CultureInfo("de-DE"))}";
             //string timeInfo = $"It is {DateTime.Now.ToLongTimeString()} on {DateTime.Now.ToLongDateString()}";
             synthesizer.SpeakAsync(timeInfo);
+        }
+
+        private void RBMetLines_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToBoolean(LanguageGer.IsChecked))
+            {
+                var language = new CultureInfo("de-DE");
+            }else
+            {
+                var language = new CultureInfo("en-EN");
+            }
         }
     }
 }

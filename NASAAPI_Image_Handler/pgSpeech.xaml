@@ -21,7 +21,15 @@
                        Foreground="White"
                        Margin="0,10,0,10"
                        TextAlignment="Center"/>
-
+            <TextBlock Text="Choose your Language: "
+                       FontSize="14"
+                       Foreground="White"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"/>
+                       <RadioButton x:Name="LanguageGer" HorizontalAlignment="Center" Foreground="White" IsChecked="True">German</RadioButton>
+                       <RadioButton x:Name="LanguageEng" HorizontalAlignment="Center" Foreground="White">English</RadioButton>
+                       
+            
             <TextBlock Text="This app reads out what you type – or speaks the current date and time. It's a playful demo using the text-to-speech library. ¯\_(ツ)_/¯"
                        FontSize="14"
                        Foreground="White"

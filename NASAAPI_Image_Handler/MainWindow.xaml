@@ -122,7 +122,7 @@
                                 Grid.Row="0"
                                 Orientation="Horizontal"
                                 FlowDirection="RightToLeft"
-                                Background="Transparent"
+                                Background="#24105F"
                                 Margin="0,0,5,0"
                                 MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
                                 MouseEnter="pnlControlBar_MouseEnter">
@@ -152,7 +152,7 @@
                     </StackPanel>
 
                     <!-- Header / Caption-->
-                    <Grid Grid.Row="1">
+                    <Grid Grid.Row="1" Background="#24105F">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
