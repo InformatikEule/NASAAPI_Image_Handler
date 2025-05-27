@@ -41,7 +41,7 @@
                          Margin="10,0,10,0">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="Heart" Style="{StaticResource subMenuButtonIcon}"/>
-                    <TextBlock Text="" Style="{StaticResource subMenuButtonText}"/>
+                    <TextBlock Text="Add to Favorites" Foreground="White" Style="{StaticResource subMenuButtonText}"/>
                 </StackPanel>
             </Button>
         </StackPanel>

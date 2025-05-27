@@ -53,6 +53,8 @@ namespace NASAAPI_Image_Handler
         //        return comparedDate;
         //    }
         //}
+
+
         private async void GetAPOD()
         {
             var resp = await cl.GetAsync("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
