@@ -43,12 +43,13 @@ namespace NASAAPI_Image_Handler
                         Usermail = reader.GetString("Usermail")
                     };
                 }
+                MessageBox.Show(reader.ToString());
             }
 
-            public string GetCachedUsername()
-            {
-                return _cachedUser?.Username ?? "[unbekannt]";
-            }
+            //public string GetCachedUsername()
+            //{
+            //    return _cachedUser?.Username ?? "[unbekannt]";
+            //}
         }
     }
 }

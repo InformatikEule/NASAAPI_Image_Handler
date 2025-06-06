@@ -16,15 +16,26 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-            <TextBlock Text="Your Favorites" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
+            <TextBlock Text="Your Favorites: " Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
+            <TextBlock Text="UserName" Foreground="White"></TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Click="btnShowFavs_Click" Content="Show all Favorites" Foreground="White" Background="#242424" Margin="0,0,10,0"></Button>
+            <ComboBox Background="#242424" Foreground="White" Margin="0,0,10,0">
+                <ComboBoxItem Background="#242424" Foreground="White" IsSelected="True">Kategorie I</ComboBoxItem>
+                <ComboBoxItem Background="#242424" Foreground="White">Kategorie II</ComboBoxItem>
+                <ComboBoxItem Background="#242424" Foreground="White">Kategorie III</ComboBoxItem>
+            </ComboBox>
+            <StackPanel Orientation="Horizontal">
+            <TextBlock Background="#242424" Foreground="White">Or search for specific Pictures <Button>Here!</Button></TextBlock>
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <Image x:Name="imgRover" Source="/Data/shuttleReflection.jpg" Margin="10,10,10,10"/>
+            <Image x:Name="imgFavs" Source="/Data/shuttleReflection.jpg" Margin="10,10,10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Style="{StaticResource subMenuButton}"
+                    Click="btnPic_Click"
                                  Tag="{StaticResource colorClose}"
                          Margin="10,0,10,0">
                 <StackPanel Orientation="Horizontal">
@@ -32,6 +43,9 @@
                     <TextBlock Text="" Style="{StaticResource subMenuButtonText}"/>
                 </StackPanel>
             </Button>
+            <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="100" Orientation="Horizontal">
+                <TextBlock Text="SDFGDSFG" Foreground="White" x:Name="txtPic"></TextBlock>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
