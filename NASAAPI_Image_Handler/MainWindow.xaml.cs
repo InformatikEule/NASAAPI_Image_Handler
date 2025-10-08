@@ -127,5 +127,12 @@ namespace NASAAPI_Image_Handler
         {
 
         }
+        private void btnSmartFridge_Click(object sender, RoutedEventArgs e)
+        {
+            pgFridge s7 = new pgFridge();
+            contentSpace.Content = s7.Content;
+            txtPageName.Text = "My own Smart Fridge";
+        }
+
     }
 }

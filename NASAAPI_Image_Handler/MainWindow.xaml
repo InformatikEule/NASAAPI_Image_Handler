@@ -94,6 +94,14 @@
                             <TextBlock Text="Text 2 Speech" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color6}"
+                                 Click="btnSmartFridge_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Temperature0" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="My Own Smart Fridge" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
                 </StackPanel>
             </Border>
 
