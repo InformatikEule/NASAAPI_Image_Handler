@@ -62,6 +62,14 @@
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    <!--<Button x:Name="btnAcc"
+                                    Click="btnAcc_Click"
+                                    Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color1}">
+                        <fa:IconImage Icon="AngleDown" 
+                                              Height="12" Width="12"
+                                              Style="{StaticResource iconButtonIcon}"/>
+                    </Button>-->
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color2}"
                                  Click="btnRover_Click">

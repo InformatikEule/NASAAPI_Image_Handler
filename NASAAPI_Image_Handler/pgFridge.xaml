@@ -10,7 +10,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
-            <RowDefinition Height="20" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -21,23 +20,32 @@
             <TextBlock Text="Your Frozen Meals" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-            <TextBlock Text="Was möchtest du einfrieren? Ich benötige einen Namen, die Fleischsorte sowie eine Menge und das Einfrierdatum:" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
+            <TextBlock Text="" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
         </StackPanel>
 
 
         <!-- Linke Seite: Eingabe -->
         <StackPanel Grid.Column="0" Grid.Row="3" Margin="20" VerticalAlignment="Center">
-            <TextBlock Text="Datum:" />
-            <DatePicker x:Name="DatumPicker" />
+            <TextBlock Text="Gib alle erforderlichen Parameter an und " Foreground="White"/>
+            <TextBlock Text="ich sage dir wie viel du wovon hast und " Foreground="White"/>
+            <TextBlock Text="wie lange das haltbar ist." Foreground="White"/>
+            
+            <TextBlock Text="Name:" Foreground="White" Margin="0,10,0,0"/>
+            <TextBox x:Name="txtName" />
 
-            <TextBlock Text="Name:" />
-            <TextBox x:Name="NameBox" />
+            <TextBlock Text="Menge:" Foreground="White"/>
+            <TextBox x:Name="txtMenge" />
 
-            <TextBlock Text="Fleischart:" />
-            <ComboBox x:Name="FleischBox" Width="150">
+            <TextBlock Text="Datum:" Foreground="White"/>
+            <DatePicker x:Name="datPicked" />
+
+            <TextBlock Text="Art:" Foreground="White"/>
+            <ComboBox x:Name="comBoxArt" Width="150">
                 <ComboBoxItem Content="Rind" />
                 <ComboBoxItem Content="Schwein" />
+                <ComboBoxItem Content="Hackfleisch" />
                 <ComboBoxItem Content="Huhn" />
+                <ComboBoxItem Content="Hühnersuppe" />                
                 <ComboBoxItem Content="Lamm" />
                 <ComboBoxItem Content="Wild" />
                 <ComboBoxItem Content="Veggie *Würg" />
@@ -47,12 +55,13 @@
         </StackPanel>
 
         <!-- Rechte Seite: Ausgabe -->
-        <ListView x:Name="AusgabeListe" Grid.Row="2" Grid.Column="1" Margin="20">
+        <ListView x:Name="AusgabeListe" Grid.Row="2" Grid.Column="1" Margin="10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="100" />
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150" />
-                    <GridViewColumn Header="Fleischart" DisplayMemberBinding="{Binding Fleischart}" Width="100" />
+                    <GridViewColumn Header="Menge" DisplayMemberBinding="{Binding Name}" Width="150" />
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="100" />
+                    <GridViewColumn Header="Art" DisplayMemberBinding="{Binding Fleischart}" Width="100" />
                 </GridView>
             </ListView.View>
         </ListView>
