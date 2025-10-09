@@ -26,21 +26,21 @@
 
         <!-- Linke Seite: Eingabe -->
         <StackPanel Grid.Column="0" Grid.Row="3" Margin="20" VerticalAlignment="Center">
-            <TextBlock Text="Gib alle erforderlichen Parameter an und " Foreground="White"/>
-            <TextBlock Text="ich sage dir wie viel du wovon hast und " Foreground="White"/>
-            <TextBlock Text="wie lange das haltbar ist." Foreground="White"/>
-            
-            <TextBlock Text="Name:" Foreground="White" Margin="0,10,0,0"/>
+            <TextBlock Text="Gib alle erforderlichen Parameter an und " Foreground="{StaticResource color3}"/>
+            <TextBlock Text="ich sage dir wie viel du wovon hast und " Foreground="{StaticResource color3}"/>
+            <TextBlock Text="wie lange das haltbar ist." Foreground="{StaticResource color3}"/>
+
+            <TextBlock Text="Name:" Foreground="{StaticResource color3}" Margin="0,10,0,0"/>
             <TextBox x:Name="txtName" />
 
-            <TextBlock Text="Menge:" Foreground="White"/>
+            <TextBlock Text="Menge:" Foreground="{StaticResource color3}"/>
             <TextBox x:Name="txtMenge" />
 
-            <TextBlock Text="Datum:" Foreground="White"/>
+            <TextBlock Text="Datum:" Foreground="{StaticResource color3}"/>
             <DatePicker x:Name="datPicked" />
 
-            <TextBlock Text="Art:" Foreground="White"/>
-            <ComboBox x:Name="comBoxArt" Width="150">
+            <TextBlock Text="Art:" Foreground="{StaticResource color3}"/>
+            <ComboBox x:Name="comBoxArt" Width="150" Foreground="{StaticResource color3}">
                 <ComboBoxItem Content="Rind" />
                 <ComboBoxItem Content="Schwein" />
                 <ComboBoxItem Content="Hackfleisch" />
@@ -51,11 +51,11 @@
                 <ComboBoxItem Content="Veggie *Würg" />
             </ComboBox>
 
-            <Button Content="Hinzufügen" Width="100" Click="btnHinzufügen_Click" Margin="0,10,0,0"/>
+            <Button Content="Hinzufügen" Foreground="{StaticResource color3}" Background="{StaticResource panelOverColor}" Width="100" Click="btnHinzufügen_Click" Margin="0,10,0,0"/>
         </StackPanel>
 
         <!-- Rechte Seite: Ausgabe -->
-        <ListView x:Name="AusgabeListe" Grid.Row="2" Grid.Column="1" Margin="10">
+        <ListView x:Name="AusgabeListe" Grid.Row="2" Grid.Column="1" Margin="10" Background="{StaticResource panelOverColor}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150" />
