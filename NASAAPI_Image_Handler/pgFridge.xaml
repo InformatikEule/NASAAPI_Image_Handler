@@ -19,15 +19,20 @@
             <TextBlock Text="Your Frozen Meals" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-            <TextBlock Text="placeholder..." Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
+            <TextBlock Text="Was möchtest du einfrieren? Ich benötige einen Namen, die Fleischsorte sowie eine Menge und das Einfrierdatum:" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
         </StackPanel>
         <!-- Data View: -->
-        <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
-            <StackPanel Orientation="Vertical">
-                <TextBox Text="hi"></TextBox>
-                <TextBox Text="hi"></TextBox>
-                <TextBox Text="hi"></TextBox>
-                <TextBox Text="hi"></TextBox>
+        <StackPanel Grid.Row="2" Margin="10">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <Label x:Name="lblName" Foreground="White" Content="Name:"/>
+                <TextBox></TextBox>
+                <Label x:Name="lblFleisch" Foreground="White" Content="Fleischsorte:"/>
+                <TextBox></TextBox>
+                <Label x:Name="lblDatum" Foreground="White" Content="Einfrierdatum:"/>
+                <DatePicker></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                <TextBlock Foreground="White" Text="1231234234"></TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>
