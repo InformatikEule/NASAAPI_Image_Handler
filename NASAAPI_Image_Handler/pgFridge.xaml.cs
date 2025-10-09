@@ -24,5 +24,10 @@ namespace NASAAPI_Image_Handler
         {
             InitializeComponent();
         }
+
+        private void btnHinzufügen_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("1");
+        }
     }
 }

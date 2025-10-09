@@ -7,8 +7,57 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="pgFridge">
-
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock Text="Your Frozen Meals" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock Text="Was möchtest du einfrieren? Ich benötige einen Namen, die Fleischsorte sowie eine Menge und das Einfrierdatum:" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
+        </StackPanel>
+
+
+        <!-- Linke Seite: Eingabe -->
+        <StackPanel Grid.Column="0" Grid.Row="3" Margin="20" VerticalAlignment="Center">
+            <TextBlock Text="Datum:" />
+            <DatePicker x:Name="DatumPicker" />
+
+            <TextBlock Text="Name:" />
+            <TextBox x:Name="NameBox" />
+
+            <TextBlock Text="Fleischart:" />
+            <ComboBox x:Name="FleischBox" Width="150">
+                <ComboBoxItem Content="Rind" />
+                <ComboBoxItem Content="Schwein" />
+                <ComboBoxItem Content="Huhn" />
+                <ComboBoxItem Content="Lamm" />
+                <ComboBoxItem Content="Wild" />
+                <ComboBoxItem Content="Veggie *Würg" />
+            </ComboBox>
+
+            <Button Content="Hinzufügen" Width="100" Click="btnHinzufügen_Click" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <!-- Rechte Seite: Ausgabe -->
+        <ListView x:Name="AusgabeListe" Grid.Row="2" Grid.Column="1" Margin="20">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="100" />
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150" />
+                    <GridViewColumn Header="Fleischart" DisplayMemberBinding="{Binding Fleischart}" Width="100" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
@@ -21,7 +70,6 @@
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <TextBlock Text="Was möchtest du einfrieren? Ich benötige einen Namen, die Fleischsorte sowie eine Menge und das Einfrierdatum:" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
         </StackPanel>
-        <!-- Data View: -->
         <StackPanel Grid.Row="2" Margin="10">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <Label x:Name="lblName" Foreground="White" Content="Name:"/>
@@ -35,5 +83,5 @@
                 <TextBlock Foreground="White" Text="1231234234"></TextBlock>
             </StackPanel>
         </StackPanel>
-    </Grid>
+    </Grid>-->
 </Page>
