@@ -34,22 +34,29 @@ namespace NASAAPI_Image_Handler
                 string dateGerman = datPicked.Text;
                 DateTime parsed = DateTime.ParseExact(dateGerman, "dd.MM.yyyy", null);
                 string sqlDate = parsed.ToString("yyyy-MM-dd");
+                string sql = "INSERT INTO meals (name, menge, datum, art) VALUES (@name, @menge, @datum, @art)";
 
-                string sql = $"INSERT INTO meals VALUES('','{txtName.Text}','{txtMenge.Text}','{sqlDate}','{comBoxArt.Text}')";
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@name", txtName.Text },
+                    { "@menge", txtMenge.Text },
+                    { "@datum", sqlDate },
+                    { "@art", comBoxArt.Text }
+                };
 
                 using (var db = new clsMySql())
                 {
                     db.Open();
-                    int count = db.ExecuteNonQuery(sql);
+                    int count = db.ExecuteNonQuery(sql, parameters);
 
                     if (count >= 1)
                         MessageBox.Show("Deine Mahlzeit wurde gespeichert!");
                     else
-                        MessageBox.Show("Something went wrong. Please try again.");
+                        MessageBox.Show("Etwas ist schiefgelaufen.");
                 }
             }
             catch (Exception ex)
-            {
+            { 
                 MessageBox.Show("Fehler beim Schreiben in die Datenbank:" + ex.Message);
             }
         }
