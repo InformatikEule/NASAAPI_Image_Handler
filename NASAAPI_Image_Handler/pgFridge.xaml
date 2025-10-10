@@ -40,15 +40,19 @@
             <DatePicker x:Name="datPicked" />
 
             <TextBlock Text="Art:" Foreground="{StaticResource color3}"/>
-            <ComboBox x:Name="comBoxArt" Width="150" Foreground="{StaticResource color3}">
-                <ComboBoxItem Content="Rind" />
-                <ComboBoxItem Content="Schwein" />
-                <ComboBoxItem Content="Hackfleisch" />
-                <ComboBoxItem Content="Huhn" />
-                <ComboBoxItem Content="Hühnersuppe" />                
-                <ComboBoxItem Content="Lamm" />
-                <ComboBoxItem Content="Wild" />
-                <ComboBoxItem Content="Veggie *Würg" />
+            <ComboBox x:Name="comBoxArt" Width="150" Foreground="{StaticResource color3}" Background="{StaticResource panelOverColor}">
+                    <ComboBox.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Red" />
+                    </ComboBox.Resources>
+                <ComboBoxItem Content="Rind" Background="{StaticResource panelOverColor}" IsSelected="True"/>
+                <ComboBoxItem Content="Schwein" Background="{StaticResource panelOverColor}" />
+                <ComboBoxItem Content="Hackfleisch" Background="{StaticResource panelOverColor}" />
+                <ComboBoxItem Content="Huhn" Background="{StaticResource panelOverColor}" />
+                <ComboBoxItem Content="Hühnersuppe" Background="{StaticResource panelOverColor}" />
+                <ComboBoxItem Content="Lamm" Background="{StaticResource panelOverColor}" />
+                <ComboBoxItem Content="Wild" Background="{StaticResource panelOverColor}" />
+                <ComboBoxItem Content="Veggie *Würg" Background="{StaticResource panelOverColor}" />
             </ComboBox>
 
             <Button Content="Hinzufügen" Foreground="{StaticResource color3}" Background="{StaticResource panelOverColor}" Width="100" Click="btnHinzufügen_Click" Margin="0,10,0,0"/>
