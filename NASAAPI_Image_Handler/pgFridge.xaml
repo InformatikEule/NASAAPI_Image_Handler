@@ -40,12 +40,12 @@
             <DatePicker x:Name="datPicked" />
 
             <TextBlock Text="Art:" Foreground="{StaticResource color3}"/>
-            <ComboBox x:Name="comBoxArt" Width="150" Foreground="{StaticResource color3}" Background="{StaticResource panelOverColor}">
-                    <ComboBox.Resources>
-                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue" />
-                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Red" />
-                    </ComboBox.Resources>
-                <ComboBoxItem Content="Rind" Background="{StaticResource panelOverColor}" IsSelected="True"/>
+            <ComboBox x:Name="comBoxArt" Width="150" Foreground="{StaticResource color3}" Background="{StaticResource panelOverColor}" SelectedItem="null0">
+                <ComboBox.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue" />
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Red" />
+                </ComboBox.Resources>
+                <ComboBoxItem Content="Rind" Background="{StaticResource panelOverColor}"/>
                 <ComboBoxItem Content="Schwein" Background="{StaticResource panelOverColor}" />
                 <ComboBoxItem Content="Hackfleisch" Background="{StaticResource panelOverColor}" />
                 <ComboBoxItem Content="Huhn" Background="{StaticResource panelOverColor}" />
@@ -59,42 +59,16 @@
         </StackPanel>
 
         <!-- Rechte Seite: Ausgabe -->
-        <ListView x:Name="AusgabeListe" Grid.Row="2" Grid.Column="1" Margin="10" Background="{StaticResource panelOverColor}">
+        <ListView x:Name="lvMeals" Grid.Row="2" Grid.Column="1" Margin="10" Background="{StaticResource panelOverColor}" Foreground="{StaticResource color3}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150" />
-                    <GridViewColumn Header="Menge" DisplayMemberBinding="{Binding Name}" Width="150" />
-                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="100" />
-                    <GridViewColumn Header="Art" DisplayMemberBinding="{Binding Fleischart}" Width="100" />
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="40" />
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                    <GridViewColumn Header="Menge" DisplayMemberBinding="{Binding Menge}" Width="80"/>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="100"/>
+                    <GridViewColumn Header="Art" DisplayMemberBinding="{Binding Art}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
     </Grid>
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-            <TextBlock Text="Your Frozen Meals" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-            <TextBlock Text="Was möchtest du einfrieren? Ich benötige einen Namen, die Fleischsorte sowie eine Menge und das Einfrierdatum:" Margin="10,0,0,0" Foreground="{StaticResource color3}" VerticalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Margin="10">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                <Label x:Name="lblName" Foreground="White" Content="Name:"/>
-                <TextBox></TextBox>
-                <Label x:Name="lblFleisch" Foreground="White" Content="Fleischsorte:"/>
-                <TextBox></TextBox>
-                <Label x:Name="lblDatum" Foreground="White" Content="Einfrierdatum:"/>
-                <DatePicker></DatePicker>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
-                <TextBlock Foreground="White" Text="1231234234"></TextBlock>
-            </StackPanel>
-        </StackPanel>
-    </Grid>-->
 </Page>

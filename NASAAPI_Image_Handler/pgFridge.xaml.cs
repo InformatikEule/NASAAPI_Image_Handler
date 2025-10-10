@@ -24,6 +24,7 @@ namespace NASAAPI_Image_Handler
         public pgFridge()
         {
             InitializeComponent();
+            LoadMeals();
         }
 
         private void btnHinzufügen_Click(object sender, RoutedEventArgs e)
@@ -34,14 +35,14 @@ namespace NASAAPI_Image_Handler
                 string dateGerman = datPicked.Text;
                 DateTime parsed = DateTime.ParseExact(dateGerman, "dd.MM.yyyy", null);
                 string sqlDate = parsed.ToString("yyyy-MM-dd");
-                string sql = "INSERT INTO meals (name, menge, datum, art) VALUES (@name, @menge, @datum, @art)";
+                string sql = "INSERT INTO meals (Name, Menge, Datum, Art) VALUES (@name, @menge, @datum, @art)";
 
                 var parameters = new Dictionary<string, object>
                 {
-                    { "@name", txtName.Text },
-                    { "@menge", txtMenge.Text },
-                    { "@datum", sqlDate },
-                    { "@art", comBoxArt.Text }
+                    { "@Name", txtName.Text },
+                    { "@Menge", txtMenge.Text },
+                    { "@Datum", sqlDate },
+                    { "@Art", comBoxArt.Text }
                 };
 
                 using (var db = new clsMySql())
@@ -50,7 +51,13 @@ namespace NASAAPI_Image_Handler
                     int count = db.ExecuteNonQuery(sql, parameters);
 
                     if (count >= 1)
-                        MessageBox.Show("Deine Mahlzeit wurde gespeichert!");
+                    {
+                        txtName.Clear();
+                        txtMenge.Clear();
+                        datPicked.SelectedDate = null;
+                        comBoxArt.SelectedItem = null;
+                        LoadMeals();
+                    }
                     else
                         MessageBox.Show("Etwas ist schiefgelaufen.");
                 }
@@ -58,6 +65,42 @@ namespace NASAAPI_Image_Handler
             catch (Exception ex)
             { 
                 MessageBox.Show("Fehler beim Schreiben in die Datenbank:" + ex.Message);
+            }
+        }
+
+        private void LoadMeals()
+        {
+            try
+            {
+                var meals = new List<clsMeal>();
+
+                using (var db = new clsMySql())
+                {
+                    db.Open();
+                    string sql = "SELECT id, name, menge, datum, art FROM meals";
+
+                    using (var reader = db.ExecuteReader(sql))
+                    {
+                        while (reader.Read())
+                        {
+                            var meal = new clsMeal
+                            {
+                                Id = reader.GetInt32("id"),
+                                Name = reader.GetString("name"),
+                                Menge = reader.GetString("menge"),
+                                Datum = reader.GetDateTime("datum").ToString("dd.MM.yyyy"),
+                                Art = reader.GetString("art")
+                            };
+                            meals.Add(meal);
+                        }
+                    }
+                }
+
+                lvMeals.ItemsSource = meals;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler beim Laden der Daten:\n" + ex.Message);
             }
         }
     }
