@@ -7,53 +7,52 @@ using System.Windows.Forms;
 
 namespace NASAAPI_Image_Handler
 {
-    //class clsMySql { 
-    //    public void returnSecrets
-    //    {
-    //        string server = "localhost";
-    //        string db = "test";
-    //        string user = "root";
-    //        string pw = "";
-    //        string conn = string.Format("server={0};db={1};user={2};password={3}", server, db, user, password);
-    //    }
-    //}
-    //class clsMySql
-    //{
-    //    public MySqlConnection conn;
-    //    public void connect()
-    //    {
-    //        string server = "localhost";
-    //        string db = "test";
-    //        string user = "root";
-    //        string pw = "";
-    //        string connString = string.Format("server={0};db={1};user={2};password={3}", server, db, user, pw);
+    public class clsMySql : IDisposable
+    {
+        private readonly MySqlConnection _connection;
 
+        public clsMySql()
+        {
+            string server = "localhost";
+            string db = "test";
+            string user = "root";
+            string pw = "";
+            string connString = $"server={server};database={db};user={user};password={pw};";
+            _connection = new MySqlConnection(connString);
+        }
 
-    //        conn = new MySqlConnection(connString);
-    //        try
-    //        {
-    //            conn.Open();
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            MessageBox.Show("Error opening MySQL Connection: " + e);
-    //        }
-    //    }
-    //}
+        public void Open()
+        {
+            if (_connection.State != System.Data.ConnectionState.Open)
+                _connection.Open();
+        }
+
+        public void Close()
+        {
+            if (_connection.State != System.Data.ConnectionState.Closed)
+                _connection.Close();
+        }
+
+        public int ExecuteNonQuery(string sql)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(sql, _connection))
+            {
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+        public MySqlDataReader ExecuteReader(string sql)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(sql, _connection))
+            {
+                return cmd.ExecuteReader();
+            }
+        }
+
+        public void Dispose()
+        {
+            Close();
+            _connection.Dispose();
+        }
+    }
 }
-
-
-        //public static SqlConnection? conn;
-        //public void OpenSqlConnection()
-        //{
-        //    try
-        //    {
-        //        string connString = clsSecrets.returnSecrets(); // remove the part behind the = and replace it with your own connection string!
-        //        conn = new SqlConnection(connString);
-        //        conn.Open();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show("Error opening SQL Connection: " + e);
-        //    }
-        //}
