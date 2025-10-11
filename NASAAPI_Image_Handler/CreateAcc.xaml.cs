@@ -48,6 +48,27 @@ namespace NASAAPI_Image_Handler
         {
             try
             {
+                string email = txtUMail.Text;
+                //next level man. thx stack-overflow! ;D
+                bool IsValidEmail(string email)
+                {
+                    var trimmedEmail = email.Trim();
+
+                    if (trimmedEmail.EndsWith("."))
+                    {
+                        return false; // suggested by @TK-421
+                    }
+                    try
+                    {
+                        var addr = new System.Net.Mail.MailAddress(email);
+                        return addr.Address == trimmedEmail;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+
                 string sql = $"INSERT INTO accounts VALUES('' ,'{txtUName.Text}', '{txtPW.Password}', '{txtUMail.Text}')";
                 
                 using (var db = new clsMySql())

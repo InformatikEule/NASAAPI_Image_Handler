@@ -16,7 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
-using static NASAAPI_Image_Handler.clsUserData;
 
 namespace NASAAPI_Image_Handler
 {

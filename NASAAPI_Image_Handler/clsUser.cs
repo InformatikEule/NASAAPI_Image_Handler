@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace NASAAPI_Image_Handler
 {
-    class clsUserData
+    class clsUser
     {
 
         public class User
@@ -45,11 +45,6 @@ namespace NASAAPI_Image_Handler
                 }
                 MessageBox.Show(reader.ToString());
             }
-
-            //public string GetCachedUsername()
-            //{
-            //    return _cachedUser?.Username ?? "[unbekannt]";
-            //}
         }
     }
 }

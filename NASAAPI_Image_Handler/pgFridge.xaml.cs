@@ -35,8 +35,8 @@ namespace NASAAPI_Image_Handler
                 string dateGerman = datPicked.Text;
                 DateTime parsed = DateTime.ParseExact(dateGerman, "dd.MM.yyyy", null);
                 string sqlDate = parsed.ToString("yyyy-MM-dd");
-                string sql = "INSERT INTO meals (Name, Menge, Datum, Art) VALUES (@name, @menge, @datum, @art)";
 
+                string sql = "INSERT INTO meals (Name, Menge, Datum, Art) VALUES (@name, @menge, @datum, @art)";
                 var parameters = new Dictionary<string, object>
                 {
                     { "@Name", txtName.Text },
@@ -95,7 +95,6 @@ namespace NASAAPI_Image_Handler
                         }
                     }
                 }
-
                 lvMeals.ItemsSource = meals;
             }
             catch (Exception ex)

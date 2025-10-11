@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static NASAAPI_Image_Handler.clsUserData;
 
 namespace NASAAPI_Image_Handler
 {
