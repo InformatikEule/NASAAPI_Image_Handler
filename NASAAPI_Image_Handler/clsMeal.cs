@@ -8,10 +8,10 @@ namespace NASAAPI_Image_Handler
 {
     public class clsMeal
     {
-        public int Id { get; set; }
-        public string ?Name { get; set; }
-        public string ?Menge { get; set; }
-        public string ?Datum { get; set; }
-        public string ?Art { get; set; }
+        public int? Id { get; set; }
+        public string? Name { get; set; }
+        public string? Menge { get; set; }
+        public string? Datum { get; set; }
+        public string? Art { get; set; }
     }
 }

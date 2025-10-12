@@ -62,11 +62,12 @@
         <ListView x:Name="lvMeals" Grid.Row="2" Grid.Column="1" Margin="10" Background="{StaticResource panelOverColor}" Foreground="{StaticResource color3}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="40" />
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                    <GridViewColumn Header="Menge" DisplayMemberBinding="{Binding Menge}" Width="80"/>
-                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}" Width="100"/>
-                    <GridViewColumn Header="Art" DisplayMemberBinding="{Binding Art}" Width="100"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Menge" DisplayMemberBinding="{Binding Menge}"/>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum}"/>
+                    <GridViewColumn Header="Art" DisplayMemberBinding="{Binding Art}" />
+                    <GridViewColumn Header="Ablauf" DisplayMemberBinding="{Binding AblaufDatum}" />
                 </GridView>
             </ListView.View>
         </ListView>

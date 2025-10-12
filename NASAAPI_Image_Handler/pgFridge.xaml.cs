@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,25 +46,23 @@ namespace NASAAPI_Image_Handler
                     { "@Art", comBoxArt.Text }
                 };
 
-                using (var db = new clsMySql())
-                {
-                    db.Open();
-                    int count = db.ExecuteNonQuery(sql, parameters);
+                using var db = new clsMySql();
+                db.Open();
+                int count = db.ExecuteNonQuery(sql, parameters);
 
-                    if (count >= 1)
-                    {
-                        txtName.Clear();
-                        txtMenge.Clear();
-                        datPicked.SelectedDate = null;
-                        comBoxArt.SelectedItem = null;
-                        LoadMeals();
-                    }
-                    else
-                        MessageBox.Show("Etwas ist schiefgelaufen.");
+                if (count >= 1)
+                {
+                    txtName.Clear();
+                    txtMenge.Clear();
+                    datPicked.SelectedDate = null;
+                    comBoxArt.SelectedItem = null;
+                    LoadMeals();
                 }
+                else
+                    MessageBox.Show("Etwas ist schiefgelaufen.");
             }
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show("Fehler beim Schreiben in die Datenbank:" + ex.Message);
             }
         }
@@ -72,27 +71,25 @@ namespace NASAAPI_Image_Handler
         {
             try
             {
-                var meals = new List<clsMeal>();
+                List<clsMeal> meals = new List<clsMeal>();
 
                 using (var db = new clsMySql())
                 {
                     db.Open();
                     string sql = "SELECT id, name, menge, datum, art FROM meals";
 
-                    using (var reader = db.ExecuteReader(sql))
+                    using var reader = db.ExecuteReader(sql);
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        var meal = new clsMeal
                         {
-                            var meal = new clsMeal
-                            {
-                                Id = reader.GetInt32("id"),
-                                Name = reader.GetString("name"),
-                                Menge = reader.GetString("menge"),
-                                Datum = reader.GetDateTime("datum").ToString("dd.MM.yyyy"),
-                                Art = reader.GetString("art")
-                            };
-                            meals.Add(meal);
-                        }
+                            Id = reader.GetInt32("id"),
+                            Name = reader.GetString("name"),
+                            Menge = reader.GetString("menge"),
+                            Datum = reader.GetDateTime("datum").ToString("dd.MM.yyyy"),
+                            Art = reader.GetString("art")
+                        };
+                        meals.Add(meal);
                     }
                 }
                 lvMeals.ItemsSource = meals;
