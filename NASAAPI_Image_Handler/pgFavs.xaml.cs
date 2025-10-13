@@ -28,7 +28,7 @@ namespace NASAAPI_Image_Handler
             InitializeComponent();
         }
 
-        private void btnPic_Click(object sender, RoutedEventArgs e)
+        private void BtnPic_Click(object sender, RoutedEventArgs e)
         {
             MySqlConnection conn;
             try
